@@ -1,0 +1,4 @@
+wget -O /tmp/intellij2016.3.tar.gz http://download.jetbrains.com/idea/ideaIC-2016.3.tar.gz &&
+tar xfz /tmp/intellij2016.3.tar.gz &&
+cd idea-IC-123.169/bin &&
+./idea.sh

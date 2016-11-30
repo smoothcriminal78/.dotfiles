@@ -1,0 +1,6 @@
+scalaVer="2.11.8"
+sudo apt-get remove scala-library scala
+sudo wget www.scala-lang.org/files/archive/scala-"$scalaVer".deb
+sudo dpkg -i scala-"$scalaVer".deb
+sudo apt-get update
+sudo apt-get install scala
