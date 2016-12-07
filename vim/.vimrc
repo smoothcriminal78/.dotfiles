@@ -1,24 +1,30 @@
-" Encoding
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
 
-scriptencoding utf-8
-set encoding=utf-8
-
-" Load plugins
-
-
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
+call vundle#rc()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " Generic
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'              " Class/module browser
+
+" Other
+Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'fisadev/FixedTaskList.vim'      " Pending tasks list
+Plugin 'rosenfeld/conque-term'          " Consoles as buffers
+Plugin 'tpope/vim-surround'     " Parentheses, brackets, quotes, XML tags, and more
+
+" Snippets support
+Plugin 'garbas/vim-snipmate'        " Snippets manager
+Plugin 'MarcWeber/vim-addon-mw-utils'   " dependencies #1
+Plugin 'tomtom/tlib_vim'        " dependencies #2
+Plugin 'honza/vim-snippets'     " snippets repo
+
+
 Bundle "itchyny/lightline.vim"
 " Plugin 'terryma/vim-multiple-cursors'
 " Bundle 'rking/ag.vim'
@@ -44,6 +50,12 @@ Plugin 'altercation/vim-colors-solarized'
 " Bundle "pangloss/vim-javascript"
 " Plugin 'marijnh/tern_for_vim'
 
+" --- Python ---
+Plugin 'klen/python-mode'            " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
+Plugin 'davidhalter/jedi-vim'        " Jedi-vim autocomplete plugin
+Plugin 'mitsuhiko/vim-jinja'     " Jinja support for vim
+Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
+
 " Scala
 
 Plugin 'derekwyatt/vim-scala'
@@ -57,12 +69,11 @@ Plugin 'wesQ3/vim-windowswap'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+filetype on
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
+" All of your Plugins must be added before the following line
+filetype plugin indent on    " required
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -74,6 +85,34 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " General
+set backspace=indent,eol,start
+aunmenu Help.
+aunmenu Window.
+let no_buffers_menu=1
+set mousemodel=popup
+set ttyfast
+tab sball
+set switchbuf=useopen
+
+" отключаем бэкапы и своп-файлы
+set nobackup       " no backup files
+set nowritebackup    " only in case you don't want a backup file while editing
+set noswapfile         " no swap files
+
+" прячем панельки
+"set guioptions-=m   " меню
+" set guioptions-=T    " тулбар
+"set guioptions-=r   "  скроллбары
+
+" настройка на Tab
+set smarttab
+set tabstop=8
+
+let g:snippets_dir = "~/.vim/vim-snippets/snippets"
+
+set ruler
+set completeopt-=preview
+set gcr=a:blinkon0
 
 set nocompatible	            " be iMproved, required
 set number		                "Line numbers are good
@@ -129,8 +168,9 @@ set nofoldenable        "dont fold by default
 syntax on
 set background=dark " for the dark version
 " set background=light " for the light version
+colorscheme myterm
 " colorscheme one
-colorscheme deep-space
+" colorscheme deep-space
 " colorscheme delek
 let g:one_allow_italics = 1
 
@@ -157,8 +197,130 @@ menu Encoding.utf-8 :e ++enc=utf8 <CR>
 menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 map <F8> :emenu Encoding.<TAB>
 
+
+set ls=2
+set incsearch
+set hlsearch
+set nu
+set scrolloff=5
+
+" настройки Vim-Airline
+let g:airline_theme='badwolf'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" TagBar настройки
+map <F4> :TagbarToggle<CR>
+let g:tagbar_autofocus = 0 " автофокус на Tagbar при открытии
+
 " NERDTree
 
 nmap <leader>n :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
+
+" TaskList настройки
+map <F2> :TaskList<CR>       " отобразить список тасков на F2
+
+" Работа буфферами
+map <C-q> :bd<CR>        " CTRL+Q - закрыть текущий буффер
+
+"=====================================================
+"" Python-mode settings
+"=====================================================
+" отключаем автокомплит по коду (у нас вместо него используется jedi-vim)
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
+
+" документация
+let g:pymode_doc = 0
+let g:pymode_doc_key = 'K'
+
+" проверка кода
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_ignore="E501,W601,C0110"
+
+" " провека кода после сохранения
+let g:pymode_lint_write = 1
+
+" поддержка virtualenv
+let g:pymode_virtualenv = 1
+
+" установка breakpoints
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
+
+" подстветка синтаксиса
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" отключить autofold по коду
+let g:pymode_folding = 0
+
+" возможность запускать код
+let g:pymode_run = 0
+
+" Disable choose first function/method at autocomplete
+let g:jedi#popup_select_first = 0
+
+"=====================================================
+"" User hotkeys
+"=====================================================
+" ConqueTerm
+" запуск интерпретатора на F5
+nnoremap <F5> :ConqueTermSplit ipython<CR>
+" а debug-mode на <F6>
+nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR>
+let g:ConqueTerm_StartMessages = 0
+let g:ConqueTerm_CloseOnEnd = 0
+" проверка кода в соответствии с PEP8 через <leader>8
+autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR>
+
+" автокомплит через <Ctrl+Space>
+inoremap <C-space> <C-x><C-o>
+
+" переключение между синтаксисами
+nnoremap <leader>Th :set ft=htmljinja<CR>
+nnoremap <leader>Tp :set ft=python<CR>
+nnoremap <leader>Tj :set ft=javascript<CR>
+nnoremap <leader>Tc :set ft=css<CR>
+nnoremap <leader>Td :set ft=django<CR>
+
+"=====================================================
+"" Languages support
+"=====================================================
+"" --- Python ---
+"autocmd FileType python set completeopt-=preview " раскомментируйте, в
+"случае, если не надо, чтобы jedi-vim показывал документацию по методу/классу
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 formatoptions+=croq softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+
+"" --- JavaScript ---
+let javascript_enable_domhtmlcss=1
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd BufNewFile,BufRead *.json setlocal ft=javascript
+
+" --- HTML ---
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+" --- template language support (SGML / XML too) ---
+autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd bufnewfile,bufread *.rhtml setlocal ft=eruby
+autocmd BufNewFile,BufRead *.mako setlocal ft=mako
+autocmd BufNewFile,BufRead *.tmpl setlocal ft=htmljinja
+autocmd BufNewFile,BufRead *.py_tmpl setlocal ft=python
+let html_no_rendering=1
+let g:closetag_default_xml=1
+let g:sparkupNextMapping='<c-l>'
+autocmd FileType html,htmldjango,htmljinja,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/scripts/closetag.vim
+
+" --- CSS ---
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4

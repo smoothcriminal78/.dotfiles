@@ -7,6 +7,6 @@ echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | su
 update-java-alternatives -s java-7-oracle &&
 
 wget -O /tmp/intellij2016.3.tar.gz http://download.jetbrains.com/idea/ideaIC-2016.3.tar.gz &&
-tar xfz /tmp/intellij2016.3.tar.gz &&
+tar xfz /tmp/intellij2016.3.tar.gz -C /usr/work/ide &&
 cd idea-IC-123.169/bin &&
 ./idea.sh
