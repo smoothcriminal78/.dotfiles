@@ -12,8 +12,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'              " Class/module browser
 
 " Other
-Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fisadev/FixedTaskList.vim'      " Pending tasks list
 Plugin 'rosenfeld/conque-term'          " Consoles as buffers
 Plugin 'tpope/vim-surround'     " Parentheses, brackets, quotes, XML tags, and more
@@ -21,18 +19,24 @@ Plugin 'tpope/vim-commentary'           " Comment stuff out
 Plugin 'mitsuhiko/vim-sparkup'          " Sparkup (XML/jinja/htlm-django/etc.) support
 Plugin 'Shougo/unite.vim'               " Navigation between buffers and files
 
+" Status line
+Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
+Plugin 'vim-airline/vim-airline-themes'
+
 " Completion & snippets
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'garbas/vim-snipmate'        " Snippets manager
-Plugin 'honza/vim-snippets'     " snippets repo
 Plugin 'MarcWeber/vim-addon-mw-utils'   " dependencies #1
 Plugin 'tomtom/tlib_vim'        " dependencies #2
-
-Bundle "itchyny/lightline.vim"
+Plugin 'honza/vim-snippets'     " snippets repo
+Plugin 'alvan/vim-closetag' 	" closing tags
 
 " Syntax hightlighting & colors
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
+
+" CSV
+Plugin 'csv.vim'
 
 " CSS
 Plugin 'JulesWang/css.vim'              " CSS syntax file
@@ -45,7 +49,6 @@ Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation
 Plugin 'othree/html5.vim'               " HTML5 omnicomplete and sytnax
 Plugin 'idanarye/breeze.vim'            " Html navigation like vim-easymotion, tag matching, tag highlighting and DOM navigation
 
-Plugin 'alvan/vim-closetag'
 
 " Python
 Plugin 'klen/python-mode'            " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
@@ -126,9 +129,6 @@ nnoremap <leader><space> :noh<cr>   " Clear search highlighting with ,<space>
 set nobackup       " no backup files
 set nowritebackup    " only in case you don't want a backup file while editing
 set noswapfile         " no swap files
-
-" SnipMate settings
-" let g:snippets_dir = "~/.vim/snippets"
 
 " Unite settings
 nnoremap <F2> :Unite buffer<CR> " browse a list of the currently opened buffers
@@ -269,10 +269,10 @@ let g:ctrlp_max_files = 600
 let g:ctrlp_max_depth = 6
 
 " настройки Vim-Airline
-let g:airline_theme='badwolf'
-let g:airline_powerline_fonts = 1
+let g:airline_theme='dark'
+" let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Работа буфферами
 map <C-q> :bd<CR>        " CTRL+Q - закрыть текущий буффер
