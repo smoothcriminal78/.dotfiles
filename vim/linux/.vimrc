@@ -22,11 +22,11 @@ Plugin 'mitsuhiko/vim-sparkup'          " Sparkup (XML/jinja/htlm-django/etc.) s
 Plugin 'Shougo/unite.vim'               " Navigation between buffers and files
 
 " Completion & snippets
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'garbas/vim-snipmate'        " Snippets manager
+Plugin 'honza/vim-snippets'     " snippets repo
 Plugin 'MarcWeber/vim-addon-mw-utils'   " dependencies #1
 Plugin 'tomtom/tlib_vim'        " dependencies #2
-Plugin 'honza/vim-snippets'     " snippets repo
 
 Bundle "itchyny/lightline.vim"
 
@@ -112,7 +112,7 @@ set showmode            "Show current mode down the bottom
 set wcm=<Tab>
 " set laststatus=2	"always display status line
 " set expandtab
-" set smarttab
+set smarttab
 
 " прячем панельки
 "set guioptions-=m   " меню
@@ -128,7 +128,7 @@ set nowritebackup    " only in case you don't want a backup file while editing
 set noswapfile         " no swap files
 
 " SnipMate settings
-let g:snippets_dir = "~/.vim/vim-snippets/snippets"
+" let g:snippets_dir = "~/.vim/snippets"
 
 " Unite settings
 nnoremap <F2> :Unite buffer<CR> " browse a list of the currently opened buffers
@@ -307,7 +307,7 @@ autocmd BufNewFile,BufRead *.mako setlocal ft=mako
 autocmd BufNewFile,BufRead *.tmpl setlocal ft=htmljinja
 autocmd BufNewFile,BufRead *.py_tmpl setlocal ft=python
 let html_no_rendering=1
-let g:closetag_default_xml=1
+" let g:closetag_default_xml=1
 let g:sparkupNextMapping='<c-l>'
 autocmd FileType html,htmldjango,htmljinja,eruby,mako let b:closetag_html_style=1
 
