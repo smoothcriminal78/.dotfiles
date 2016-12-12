@@ -9,14 +9,13 @@ Plugin 'VundleVim/Vundle.vim'
 " Generic
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'              " Class/module browser
+Plugin 'majutsushi/tagbar'              " Class/module browser (Ctags required)
 
 " Other
 Plugin 'fisadev/FixedTaskList.vim'      " Pending tasks list
 Plugin 'rosenfeld/conque-term'          " Consoles as buffers
 Plugin 'tpope/vim-commentary'           " Comment stuff out
-Plugin 'mitsuhiko/vim-sparkup'          " Sparkup (XML/jinja/htlm-django/etc.) support
-Plugin 'Shougo/unite.vim'               " Navigation between buffers and files
+" Plugin 'Shougo/unite.vim'               " Navigation between buffers and files
 
 " Status line
 Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
@@ -28,7 +27,6 @@ Plugin 'garbas/vim-snipmate'        " Snippets manager
 Plugin 'MarcWeber/vim-addon-mw-utils'   " dependencies #1
 Plugin 'tomtom/tlib_vim'        " dependencies #2
 Plugin 'honza/vim-snippets'     " snippets repo
-Plugin 'alvan/vim-closetag' 	" closing tags
 Plugin 'tpope/vim-surround'     " Parentheses, brackets, quotes, XML tags, and more
 
 " Syntax hightlighting & colors
@@ -48,6 +46,8 @@ Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation
 " HTML
 Plugin 'othree/html5.vim'               " HTML5 omnicomplete and sytnax
 Plugin 'idanarye/breeze.vim'            " Html navigation like vim-easymotion, tag matching, tag highlighting and DOM navigation
+Plugin 'alvan/vim-closetag' 	        " closing tags
+Plugin 'mitsuhiko/vim-sparkup'          " Sparkup (XML/jinja/htlm-django/etc.) support
 
 " Python
 Plugin 'klen/python-mode'            " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
@@ -129,6 +129,9 @@ set nobackup       " no backup files
 set nowritebackup    " only in case you don't want a backup file while editing
 set noswapfile         " no swap files
 
+" NERDtree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " Unite settings
 nnoremap <F2> :Unite buffer<CR> " browse a list of the currently opened buffers
 
@@ -140,8 +143,9 @@ map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 0 " автофокус на Tagbar при открытии
 
 " ConqueTerm
-nnoremap <F5> :ConqueTermSplit ipython<CR> " запуск интерпретатора на F5
-nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " debug-mode на <F6>
+nnoremap <F5> :ConqueTermSplit ipython<CR> " python interpreter
+" nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " debug-mode на <F6>
+nnoremap <F6> :ConqueTermSplit scala<CR> " scala interpreter
 let g:ConqueTerm_PyVersion = 3
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
@@ -268,6 +272,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_show_hidden=1
 let g:ctrlp_max_files = 600
 let g:ctrlp_max_depth = 6
+let g:ctrlp_working_path_mode = 1
 
 " настройки Vim-Airline
 let g:airline_theme='dark'
@@ -284,7 +289,7 @@ inoremap <C-space> <C-x><C-o>"
 " переключение между синтаксисами
 nnoremap <leader>Th :set ft=htmljinja<CR>
 nnoremap <leader>Tp :set ft=python<CR>
-nnoremap <leader>Tj :set ft=javascript<CR>
+nnoremap <leader>Tj :set ft=java<CR>
 nnoremap <leader>Tc :set ft=css<CR>
 nnoremap <leader>Td :set ft=django<CR>
 
