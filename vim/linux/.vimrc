@@ -14,7 +14,6 @@ Plugin 'majutsushi/tagbar'              " Class/module browser
 " Other
 Plugin 'fisadev/FixedTaskList.vim'      " Pending tasks list
 Plugin 'rosenfeld/conque-term'          " Consoles as buffers
-Plugin 'tpope/vim-surround'     " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 Plugin 'mitsuhiko/vim-sparkup'          " Sparkup (XML/jinja/htlm-django/etc.) support
 Plugin 'Shougo/unite.vim'               " Navigation between buffers and files
@@ -30,6 +29,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'   " dependencies #1
 Plugin 'tomtom/tlib_vim'        " dependencies #2
 Plugin 'honza/vim-snippets'     " snippets repo
 Plugin 'alvan/vim-closetag' 	" closing tags
+Plugin 'tpope/vim-surround'     " Parentheses, brackets, quotes, XML tags, and more
 
 " Syntax hightlighting & colors
 Plugin 'scrooloose/syntastic'
@@ -48,7 +48,6 @@ Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation
 " HTML
 Plugin 'othree/html5.vim'               " HTML5 omnicomplete and sytnax
 Plugin 'idanarye/breeze.vim'            " Html navigation like vim-easymotion, tag matching, tag highlighting and DOM navigation
-
 
 " Python
 Plugin 'klen/python-mode'            " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
@@ -143,8 +142,10 @@ let g:tagbar_autofocus = 0 " автофокус на Tagbar при открыт�
 " ConqueTerm
 nnoremap <F5> :ConqueTermSplit ipython<CR> " запуск интерпретатора на F5
 nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " debug-mode на <F6>
+let g:ConqueTerm_PyVersion = 3
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
+let g:ConqueTerm_Color = 1
 autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR> " проверка кода в соответствии с PEP8 через <leader>8
 
 " Jedi-vim
@@ -287,34 +288,58 @@ nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tc :set ft=css<CR>
 nnoremap <leader>Td :set ft=django<CR>
 
+
+"=====================================================
+" Languages support
+"=====================================================
+" C/C++/C#
+autocmd FileType c setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType cpp setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType cs setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType c setlocal commentstring=/*\ %s\ */
+autocmd FileType cpp,cs setlocal commentstring=//\ %s
+let c_no_curly_error=1
+let g:syntastic_cpp_include_dirs = ['include', '../include']
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_c_include_dirs = ['include', '../include']
+let g:syntastic_c_compiler = 'clang'
+
 " Python
+let python_highlight_all=1
+let python_highlight_exceptions=0
+let python_highlight_builtins=0
+let python_slow_sync=1
 "autocmd FileType python set completeopt-=preview " раскомментируйте, в случае, если не надо, чтобы jedi-vim показывал документацию по методу/классу
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 formatoptions+=croq softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+let g:syntastic_python_checkers = ['flake8', 'python']
+let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,E126,E721 --max-line-length=80'
 
 " JavaScript
 let javascript_enable_domhtmlcss=1
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd BufNewFile,BufRead *.json setlocal ft=javascript
+autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal commentstring=//\ %s
+autocmd FileType javascript let b:javascript_fold = 0
+let javascript_enable_domhtmlcss=1
 
 " HTML
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal commentstring=<!--\ %s\ -->
+
+" Vim
+autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 
 " template language support (SGML / XML too)
-autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-autocmd bufnewfile,bufread *.rhtml setlocal ft=eruby
-autocmd BufNewFile,BufRead *.mako setlocal ft=mako
-autocmd BufNewFile,BufRead *.tmpl setlocal ft=htmljinja
-autocmd BufNewFile,BufRead *.py_tmpl setlocal ft=python
+autocmd FileType xml,html,htmljinja,htmldjango setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html,htmljinja,htmldjango imap <buffer> <c-e> <Plug>SparkupExecute
+autocmd FileType html,htmljinja,htmldjango imap <buffer> <c-l> <Plug>SparkupNext
+autocmd FileType htmljinja setlocal commentstring={#\ %s\ #}
 let html_no_rendering=1
-" let g:closetag_default_xml=1
-let g:sparkupNextMapping='<c-l>'
-autocmd FileType html,htmldjango,htmljinja,eruby,mako let b:closetag_html_style=1
-
-let g:closetag_filenames="*.html,*.xhtml,*.phtml,*.xml"
-
-" autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/scripts/closetag.vim
+let g:syntastic_html_checkers = []
 
 " CSS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType css setlocal commentstring=/*\ %s\ */
