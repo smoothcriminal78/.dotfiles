@@ -28,6 +28,9 @@ Plugin 'tpope/vim-commentary'           " Comment stuff out
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 
+" Git
+Plugin 'fugitive.vim'
+
 " CSV
 Plugin 'csv.vim'
 
@@ -64,6 +67,8 @@ set completeopt-=preview
 set gcr=a:blinkon0
 set ttyfast
 set switchbuf=useopen
+set t_Co=256
+set laststatus=2
 
 " Menus
 aunmenu Help. 
@@ -82,7 +87,6 @@ set sidescroll=1
 set nobackup                    " no backup file
 set nowritebackup               " no backup file while editing
 set noswapfile                  " no swap file
-
 
 " Hide panels
 "set guioptions-=m              " menu
@@ -107,7 +111,7 @@ let mapleader=","
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
 " Settings for buffers
-map <C-q> :bd<CR>               " close current buffer
+map <C-e> :bd<CR>               " close current buffer
 noremap <C-Right> :bn<CR>       " move to next buffer
 noremap <C-Left> :bp<CR>        " move to previous buffer
 
@@ -140,12 +144,13 @@ autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 nmap <leader>n :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
+" let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " TagBar 
 map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 0 " автофокус на Tagbar при открытии
+set tags+=$HOME/tags
 
 " ConqueTerm
 nnoremap <F5> :ConqueTermSplit ipython<CR> " python interpreter
@@ -191,3 +196,4 @@ let g:ctrlp_working_path_mode = 1
 " Vim-Airline
 let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
