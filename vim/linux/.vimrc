@@ -16,12 +16,11 @@ Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes'
 
 " Completion & snippets
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'garbas/vim-snipmate'        " Snippets manager
+Plugin 'garbas/vim-snipmate'            " Snippets manager
 Plugin 'MarcWeber/vim-addon-mw-utils'   " dependencies #1
-Plugin 'tomtom/tlib_vim'        " dependencies #2
-Plugin 'honza/vim-snippets'     " snippets repo
-Plugin 'tpope/vim-surround'     " Parentheses, brackets, quotes, XML tags, and more
+Plugin 'tomtom/tlib_vim'                " dependencies #2
+Plugin 'honza/vim-snippets'             " snippets repo
+Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'rosenfeld/conque-term'          " Consoles as buffers
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 
@@ -42,82 +41,101 @@ call vundle#end()
 filetype on
 filetype plugin on
 filetype plugin indent on
+syntax on
 
 " General
+set visualbell t_vb=            " turn off error beep/flash
+set novisualbell                " turn off visual bell
+set ls=2                        " always show status bar
+set incsearch                   " incremental search
+set hlsearch                    " highlighted search results
+set nu                          " line numbers
+set scrolloff=5                 " keep some more lines for scope
+set showmatch                   " show matching brackets/parenthesis
+set matchtime=0                 " don't blink when matching
+set showmode                    " show current mode down the bottom
+set smarttab                    " set smarttab
+set enc=utf-8                   " utf-8 default encoding
+set clipboard=unnamedplus       " use system clipboard
 set backspace=indent,eol,start
-aunmenu Help.
-aunmenu Window.
-let no_buffers_menu=1
 set mousemodel=popup
-
 set ruler
 set completeopt-=preview
 set gcr=a:blinkon0
-
 set ttyfast
-
-colorscheme nightly
-
-syntax on
-
-tab sball
 set switchbuf=useopen
 
-" Use system clipboard
-set clipboard=unnamedplus
-
-" Customize the wildmenu
-set wildmenu
+" Menus
+aunmenu Help. 
+aunmenu Window.
+let no_buffers_menu=1
+set wildmenu                    " customize the wildmenu
 set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class,*/*.dSYM/*,*.dylib
 set wildmode=list:full
-
-" Don't bell and blink
-set visualbell t_vb=    " turn off error beep/flash
-set novisualbell        " turn off visual bell
-set enc=utf-8           " utf-8 default encoding
-set ls=2                " always show status bar
-set incsearch           " incremental search
-set hlsearch            " highlighted search results
-set nu                  " line numbers
-set scrolloff=5         " keep some more lines for scope
-set showmatch           " show matching brackets/parenthesis
-set matchtime=0         " don't blink when matching
-set showmode            "Show current mode down the bottom
-
-set wcm=<Tab>
-set smarttab
-
-" hide panels
-"set guioptions-=m   " меню
-set guioptions-=T    " тулбар
-"set guioptions-=r   "  скроллбары
-
-let mapleader=","
-nnoremap <leader><space> :noh<cr>   " Clear search highlighting with ,<space>
-
-" turn off backups and swaps
-set nobackup       " no backup files
-set nowritebackup    " only in case you don't want a backup file while editing
-set noswapfile         " no swap files
-
-" Wrapping
-set nowrap       "Don't wrap lines
-set linebreak    "Wrap lines at convenient points
-
-" Folding
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
-
-" Colors
-set background=dark " for the dark version
-let g:one_allow_italics = 1
 
 " Scrolling
 set scrolloff=4
 set sidescrolloff=15
 set sidescroll=1
 
+" Backup and swap
+set nobackup                    " no backup file
+set nowritebackup               " no backup file while editing
+set noswapfile                  " no swap file
+
+
+" Hide panels
+"set guioptions-=m              " menu
+set guioptions-=T               " toolbar
+"set guioptions-=r              " scrollbar
+
+" Wrapping
+set nowrap                      " no line wraps
+set linebreak                   " wrap lines at convenient points
+
+" Folding
+set foldmethod=indent           " fold based on indent
+set foldnestmax=3               " deepest fold is 3 levels
+set nofoldenable                " dont fold by default
+
+" Colors
+colorscheme myterm 
+set background=dark             " dark version
+let g:one_allow_italics = 1
+
+let mapleader=","
+nnoremap <leader><space> :noh<cr>   " Clear search highlighting
+
+" Settings for buffers
+map <C-q> :bd<CR>               " close current buffer
+noremap <C-Right> :bn<CR>       " move to next buffer
+noremap <C-Left> :bp<CR>        " move to previous buffer
+
+" Split navigations
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+
+" Change size for splitted windows
+nnoremap <M-[> :vertical resize +5<cr>
+nnoremap <M-]> :vertical resize -5<cr>
+
+" changing between syntaxes
+nnoremap <leader>Tp :set ft=python<CR>
+nnoremap <leader>Tj :set ft=java<CR>
+
+" autocomplete
+inoremap <C-space> <C-x><C-o>
+
+"----Filetype----
+" Python
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 formatoptions+=croq softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+
+" Vim
+autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+
+"----Plugins----
 " NERDtree
 nmap <leader>n :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows=0
@@ -153,27 +171,13 @@ let g:syntastic_style_warning_symbol = 'x'
 noremap <F7> :w<CR>:SyntasticCheck<CR>
 
 " Encoding menu
+set wcm=<Tab>
 menu Encoding.koi8-r :e ++enc=koi8-r ++ff=unix<CR>
 menu Encoding.windows-1251 :e ++enc=cp1251 ++ff=dos<CR>
 menu Encoding.cp866 :e ++enc=cp866 ++ff=dos<CR>
 menu Encoding.utf-8 :e ++enc=utf8 <CR>
 menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 map <F8> :emenu Encoding.<TAB>
-
-" Settings for buffers
-map <C-q> :bd<CR>         " close current buffer
-noremap <C-Right> :bn<CR> " move to next buffer
-noremap <C-Left> :bp<CR>  " move to previous buffer
-
-" Easier split navigations
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
-nnoremap <C-h> <C-w><C-h>
-
-" Easier change size for splitted windows
-nnoremap <M-[> :vertical resize +5<cr>
-nnoremap <M-]> :vertical resize -5<cr>
 
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
@@ -187,19 +191,3 @@ let g:ctrlp_working_path_mode = 1
 " Vim-Airline
 let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
-
-" buffers
-map <C-q> :bd<CR>        " CTRL+Q - close current buffer
-
-" autocomplete
-inoremap <C-space> <C-x><C-o>
-
-" changing between syntaxes
-nnoremap <leader>Tp :set ft=python<CR>
-nnoremap <leader>Tj :set ft=java<CR>
-
-" Python
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 formatoptions+=croq softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-
-" Vim
-autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
