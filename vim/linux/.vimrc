@@ -30,6 +30,7 @@ Plugin 'altercation/vim-colors-solarized'
 
 " Git
 Plugin 'fugitive.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " CSV
 Plugin 'csv.vim'
@@ -58,7 +59,7 @@ set showmatch                   " show matching brackets/parenthesis
 set matchtime=0                 " don't blink when matching
 set showmode                    " show current mode down the bottom
 set smarttab                    " set smarttab
-set enc=utf-8                   " utf-8 default encoding
+set encoding=utf-8                   " utf-8 default encoding
 set clipboard=unnamedplus       " use system clipboard
 set backspace=indent,eol,start
 set mousemodel=popup
@@ -103,9 +104,10 @@ set foldnestmax=3               " deepest fold is 3 levels
 set nofoldenable                " dont fold by default
 
 " Colors
-colorscheme myterm 
+colorscheme gruvbox 
 set background=dark             " dark version
 let g:one_allow_italics = 1
+set guifont=Cousine\ for\ Powerline:h12
 
 let mapleader=","
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
@@ -150,7 +152,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " TagBar 
 map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 0 " автофокус на Tagbar при открытии
-set tags+=$HOME/tags
+set tags=$HOME/tags
 
 " ConqueTerm
 nnoremap <F5> :ConqueTermSplit ipython<CR> " python interpreter
@@ -194,6 +196,7 @@ let g:ctrlp_max_depth = 6
 let g:ctrlp_working_path_mode = 1
 
 " Vim-Airline
-let g:airline_theme='dark'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='gruvbox'
 " let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'

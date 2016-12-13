@@ -111,3 +111,6 @@
                         beginning of the same column, one more line below.
 <Space>                 Dynamically fold all lines away, that match the value in the current column.
 <BS>                    Remove last item from the dynamic filter.
+
+"Syntastic
+<F7>
