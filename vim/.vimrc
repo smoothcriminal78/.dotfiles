@@ -7,8 +7,8 @@ call vundle#rc()
 Plugin 'VundleVim/Vundle.vim'
 
 " Generic
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'            " File browser
+Plugin 'kien/ctrlp.vim'                 " Working with buffers
 Plugin 'majutsushi/tagbar'              " Class/module browser (Ctags required)
 
 " Status line
@@ -17,16 +17,16 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Completion & snippets
 Plugin 'garbas/vim-snipmate'            " Snippets manager
-Plugin 'MarcWeber/vim-addon-mw-utils'   " dependencies #1
-Plugin 'tomtom/tlib_vim'                " dependencies #2
-Plugin 'honza/vim-snippets'             " snippets repo
+Plugin 'MarcWeber/vim-addon-mw-utils'   " ---dependencies #1
+Plugin 'tomtom/tlib_vim'                " ---dependencies #2
+Plugin 'honza/vim-snippets'             " ---snippets repo
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'rosenfeld/conque-term'          " Consoles as buffers
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 
 " Syntax hightlighting & colors
-Plugin 'scrooloose/syntastic'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/syntastic'           " Syntax highlighting
+Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Git
 Plugin 'fugitive.vim'
@@ -113,7 +113,7 @@ let mapleader=","
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
 " Settings for buffers
-map <C-e> :bd<CR>               " close current buffer
+map <C-q> :bd<CR>               " close current buffer
 noremap <C-Right> :bn<CR>       " move to next buffer
 noremap <C-Left> :bp<CR>        " move to previous buffer
 
