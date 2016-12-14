@@ -13,7 +13,7 @@ Plugin 'majutsushi/tagbar'              " Class/module browser (Ctags required)
 
 " Status line
 Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline-themes' " ---dependencies
 
 " Completion & snippets
 Plugin 'garbas/vim-snipmate'            " Snippets manager
@@ -33,13 +33,13 @@ Plugin 'fugitive.vim'
 Plugin 'airblade/vim-gitgutter'
 
 " CSV
-Plugin 'csv.vim'
+Plugin 'csv.vim'                        " CSV plugin
 
 " Scala
-Plugin 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-scala'           " Scala plugin
 
 " Other
-Plugin 'wesQ3/vim-windowswap'
+Plugin 'wesQ3/vim-windowswap'           " Swapping windows
 call vundle#end()
 
 filetype on
@@ -59,7 +59,7 @@ set showmatch                   " show matching brackets/parenthesis
 set matchtime=0                 " don't blink when matching
 set showmode                    " show current mode down the bottom
 set smarttab                    " set smarttab
-set encoding=utf-8                   " utf-8 default encoding
+set encoding=utf-8              " utf-8 default encoding
 set clipboard=unnamedplus       " use system clipboard
 set backspace=indent,eol,start
 set mousemodel=popup
@@ -103,12 +103,6 @@ set foldmethod=indent           " fold based on indent
 set foldnestmax=3               " deepest fold is 3 levels
 set nofoldenable                " dont fold by default
 
-" Colors
-colorscheme gruvbox 
-set background=dark             " dark version
-let g:one_allow_italics = 1
-set guifont=Cousine\ for\ Powerline:h12
-
 let mapleader=","
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
@@ -146,26 +140,26 @@ autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 nmap <leader>n :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
-"for windows
-" let g:NERDTreeDirArrowExpandable = '>'
-" let g:NERDTreeDirArrowCollapsible = '*'
+"-- for win
+"-- let g:NERDTreeDirArrowExpandable = '>'
+"-- let g:NERDTreeDirArrowCollapsible = '*'
 " let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " TagBar 
 map <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 0 " автофокус на Tagbar при открытии
-set tags=$HOME/tags
+let g:tagbar_autofocus = 0
+" set tags=$HOME/tags
 
 " ConqueTerm
 nnoremap <F5> :ConqueTermSplit ipython<CR> " python interpreter
-" nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " debug-mode на <F6>
+" nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " debug-mode
 nnoremap <F6> :ConqueTermSplit scala<CR> " scala interpreter
 let g:ConqueTerm_PyVersion = 3
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
 let g:ConqueTerm_Color = 1
-autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR> " проверка кода в соответствии с PEP8 через <leader>8
+autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR> " PEP8 code check
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -190,16 +184,18 @@ menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 map <F8> :emenu Encoding.<TAB>
 
 " Ctrl-P
+nnoremap <leader>. :CtrlPTag<cr>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_show_hidden=1
+let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 600
 let g:ctrlp_max_depth = 6
 let g:ctrlp_working_path_mode = 1
 
 " Vim-Airline
+colorscheme gruvbox 
+set background=dark
 let g:airline_theme='gruvbox'
 " let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'

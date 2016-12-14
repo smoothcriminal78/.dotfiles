@@ -21,6 +21,11 @@ cd ~/.vim/bundle/YouCompleteMe
 --ctags 
 sudo apt-get install ctags
 
+https://andrew.stwrt.ca/posts/vim-ctags/
+Add tags: ctags -R -f ./.git/tags .
+
+Copy .ctags to ~
+
 --ipython
 sudo apt-get install ipython
 
