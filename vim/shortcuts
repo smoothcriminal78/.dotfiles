@@ -21,12 +21,8 @@
 
 " Tagbar 
  <F4>
-
-" TaskList
- <leader>t
- q - Quit, and restore original cursor position.
- e - Exit, and keep results window open.
- <cr> - Quit and place the cursor on the selected line
+ <C-]>
+ <C-T>
 
 " ConqueTerm
  :ConqueTerm bash
@@ -36,20 +32,10 @@
  <F10> send the entire contents of the file you are editing to an existing terminal buffer
  <F11> execute the current file in a new terminal buffer 
 
-" Vim-commentary
- gc{motion} - comment or uncomment lines that {motion} moves over.
- gc{c} - comment or uncomment [count] lines.
- {Visual}gc - comment or uncomment the highlighted lines.
- gcgc,gcu uncomment the current and adjacent commented lines.
- :[range]Commentary Comment or uncomment [range] lines
-
 " Snipmate
  <Tab> to expand
  <S-Tab> snip back
  <C-R><Tab> Show all available snippets
-
-" CloseTag
- <table| Now you press >
 
 " Vim Surround
  Normal mode
@@ -74,6 +60,18 @@
  -----------
  <CTRL-g>s - in insert mode, add a surrounding
  <CTRL-g>S - in insert mode, add a new line + surrounding + indent
+
+" Vim-commentary
+ gc{motion} - comment or uncomment lines that {motion} moves over.
+ gc{c} - comment or uncomment [count] lines.
+ {Visual}gc - comment or uncomment the highlighted lines.
+ gcgc,gcu uncomment the current and adjacent commented lines.
+ :[range]Commentary Comment or uncomment [range] lines
+
+" Syntastic
+<F7>
+
+" Git
 
 " CSV
 :WhatColumn - If you would like to know, on which column the cursor is
@@ -112,5 +110,14 @@
 <Space>                 Dynamically fold all lines away, that match the value in the current column.
 <BS>                    Remove last item from the dynamic filter.
 
-"Syntastic
-<F7>
+
+
+_____________________________________________________________________________________
+" TaskList
+ <leader>t
+ q - Quit, and restore original cursor position.
+ e - Exit, and keep results window open.
+ <cr> - Quit and place the cursor on the selected line
+
+" CloseTag
+ <table| Now you press >
