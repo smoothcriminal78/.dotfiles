@@ -72,6 +72,7 @@
 <F7>
 
 " Git
+http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
 
 " CSV
 :WhatColumn - If you would like to know, on which column the cursor is
@@ -143,8 +144,6 @@ ________________________________________________________________________________
  Use <c-z> to mark/unmark multiple files and <c-o> to open them.
  Use :diffthis when opening multiple files to run :diffthis on the first 4 files.
 
-" Tagbar 
- <F4>
 
 " TaskList
  <leader>t
@@ -238,4 +237,3 @@ ________________________________________________________________________________
 
 "Syntastic
 <F7>
->>>>>>> d1b4fa9d74ac24c833a74a3ccf87b6ef27ea30e7

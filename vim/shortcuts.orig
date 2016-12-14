@@ -1,0 +1,242 @@
+<<<<<<< HEAD
+" Nerdtree
+ t: Open the selected file in a new tab
+ i: Open the selected file in a horizontal split window
+ s: Open the selected file in a vertical split window
+ I: Toggle hidden files
+ m: Show the NERD Tree menu
+ R: Refresh the tree, useful if files change outside of Vim
+ ?: Toggle NERD Tree's quick help
+ 
+" CtrlP
+ Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+ Press <c-f> and <c-b> to cycle between modes.
+ Press <c-d> to switch to filename only search instead of full path.
+ Press <c-r> to switch to regexp mode.
+ Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+ Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+ Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+ Use <c-y> to create a new file and its parent directories.
+ Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+ Use :diffthis when opening multiple files to run :diffthis on the first 4 files.
+
+" Tagbar 
+ <F4>
+ <C-]>
+ <C-T>
+
+" ConqueTerm
+ :ConqueTerm bash
+ <F5> run python interpreter
+ <F6> run scala interpreter
+ <F9> send a visually selected range of text to an existing terminal buffer
+ <F10> send the entire contents of the file you are editing to an existing terminal buffer
+ <F11> execute the current file in a new terminal buffer 
+
+" Snipmate
+ <Tab> to expand
+ <S-Tab> snip back
+ <C-R><Tab> Show all available snippets
+
+" Vim Surround
+ Normal mode
+ -----------
+ ds  - delete a surrounding
+ cs  - change a surrounding
+ ys  - add a surrounding
+ yS  - add a surrounding and place the surrounded text on a new line + indent it
+ yss - add a surrounding to the whole line
+ ySs - add a surrounding to the whole line, place it on a new line + indent it
+ 
+ w - word
+ p - paragraph
+ s - sentence
+ t - pair of HTML or XML tags
+ 
+ Visual mode
+ -----------
+ v <visually select> S "
+ 
+ Insert mode
+ -----------
+ <CTRL-g>s - in insert mode, add a surrounding
+ <CTRL-g>S - in insert mode, add a new line + surrounding + indent
+
+" Vim-commentary
+ gc{motion} - comment or uncomment lines that {motion} moves over.
+ gc{c} - comment or uncomment [count] lines.
+ {Visual}gc - comment or uncomment the highlighted lines.
+ gcgc,gcu uncomment the current and adjacent commented lines.
+ :[range]Commentary Comment or uncomment [range] lines
+
+" Syntastic
+<F7>
+
+" Git
+
+" CSV
+:WhatColumn - If you would like to know, on which column the cursor is
+:NrColumns - outputs the maximum number of columns available
+:SearchInColumn [<nr>] /{pat}/ - search for a pattern within a specific column.  
+:HiColumn - can be used to highlight column.
+:[range]ArrangeColumn[!] [<Row>] - if you would like all columns to be visually arranged.
+:[range]UnArrangeColumn - unarrange prev command
+:DeleteColumn [colN]
+:Header - splits the csv-buffer and adds a window, that holds a small fraction of the csv file.
+:Header! - close header window
+(:VHeader for vertical)
+:Sort [colN] - can be used to sort the csv file on a certain column.
+:[N]Column [a] - copy column N into register a
+:[range]MoveColumn [source] [dest] - this moves the column number source to the right of column nr destination
+:[range]SumCol [nr] [/format/] - sum of the column
+:[range]NewRecord [count] - This will create in each line given by range [count] number of new empty records.
+:NewDelimiter char - This changes the field delimiter of your file to the new delimiter "char"
+:Duplicate columnlist - check for duplicate records
+:ConvertData - convert to html
+ Pre convert text: <html><body><table>
+ Post convert text: </table></body></html>
+ Converted text, use %s for column input: <tr><td>%s</td><td>%s</td><td>%s</td></tr>
+
+
+<C-Right> or L or WTFPLMove [count] field forwards
+<C-Left> or E or HMove [count] field backwards (but see |csv-mapping-H| for the movement of H).
+<Up> or KMove [count] line s upwards within the same column
+<Down> or JMove [count] lines downw ards within the same column
+<Enter>                 Dynamically fold all lines away, that don't match
+                        the value in the current column. See |csv-filter|
+
+                        In |Replace-mode| and |Virtual-Replace-mode| does not
+                        create a new row, but instead moves the cursor to the
+                        beginning of the same column, one more line below.
+<Space>                 Dynamically fold all lines away, that match the value in the current column.
+<BS>                    Remove last item from the dynamic filter.
+
+
+
+_____________________________________________________________________________________
+" TaskList
+ <leader>t
+ q - Quit, and restore original cursor position.
+ e - Exit, and keep results window open.
+ <cr> - Quit and place the cursor on the selected line
+
+" CloseTag
+ <table| Now you press >
+=======
+" Nerdtree
+ t: Open the selected file in a new tab
+ i: Open the selected file in a horizontal split window
+ s: Open the selected file in a vertical split window
+ I: Toggle hidden files
+ m: Show the NERD Tree menu
+ R: Refresh the tree, useful if files change outside of Vim
+ ?: Toggle NERD Tree's quick help
+ 
+" CtrlP
+ Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+ Press <c-f> and <c-b> to cycle between modes.
+ Press <c-d> to switch to filename only search instead of full path.
+ Press <c-r> to switch to regexp mode.
+ Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+ Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+ Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+ Use <c-y> to create a new file and its parent directories.
+ Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+ Use :diffthis when opening multiple files to run :diffthis on the first 4 files.
+
+" Tagbar 
+ <F4>
+
+" TaskList
+ <leader>t
+ q - Quit, and restore original cursor position.
+ e - Exit, and keep results window open.
+ <cr> - Quit and place the cursor on the selected line
+
+" ConqueTerm
+ :ConqueTerm bash
+ <F5> run python interpreter
+ <F6> run scala interpreter
+ <F9> send a visually selected range of text to an existing terminal buffer
+ <F10> send the entire contents of the file you are editing to an existing terminal buffer
+ <F11> execute the current file in a new terminal buffer 
+
+" Vim-commentary
+ gc{motion} - comment or uncomment lines that {motion} moves over.
+ gc{c} - comment or uncomment [count] lines.
+ {Visual}gc - comment or uncomment the highlighted lines.
+ gcgc,gcu uncomment the current and adjacent commented lines.
+ :[range]Commentary Comment or uncomment [range] lines
+
+" Snipmate
+ <Tab> to expand
+ <S-Tab> snip back
+ <C-R><Tab> Show all available snippets
+
+" CloseTag
+ <table| Now you press >
+
+" Vim Surround
+ Normal mode
+ -----------
+ ds  - delete a surrounding
+ cs  - change a surrounding
+ ys  - add a surrounding
+ yS  - add a surrounding and place the surrounded text on a new line + indent it
+ yss - add a surrounding to the whole line
+ ySs - add a surrounding to the whole line, place it on a new line + indent it
+ 
+ w - word
+ p - paragraph
+ s - sentence
+ t - pair of HTML or XML tags
+ 
+ Visual mode
+ -----------
+ v <visually select> S "
+ 
+ Insert mode
+ -----------
+ <CTRL-g>s - in insert mode, add a surrounding
+ <CTRL-g>S - in insert mode, add a new line + surrounding + indent
+
+" CSV
+:WhatColumn - If you would like to know, on which column the cursor is
+:NrColumns - outputs the maximum number of columns available
+:SearchInColumn [<nr>] /{pat}/ - search for a pattern within a specific column.  
+:HiColumn - can be used to highlight column.
+:[range]ArrangeColumn[!] [<Row>] - if you would like all columns to be visually arranged.
+:[range]UnArrangeColumn - unarrange prev command
+:DeleteColumn [colN]
+:Header - splits the csv-buffer and adds a window, that holds a small fraction of the csv file.
+:Header! - close header window
+(:VHeader for vertical)
+:Sort [colN] - can be used to sort the csv file on a certain column.
+:[N]Column [a] - copy column N into register a
+:[range]MoveColumn [source] [dest] - this moves the column number source to the right of column nr destination
+:[range]SumCol [nr] [/format/] - sum of the column
+:[range]NewRecord [count] - This will create in each line given by range [count] number of new empty records.
+:NewDelimiter char - This changes the field delimiter of your file to the new delimiter "char"
+:Duplicate columnlist - check for duplicate records
+:ConvertData - convert to html
+ Pre convert text: <html><body><table>
+ Post convert text: </table></body></html>
+ Converted text, use %s for column input: <tr><td>%s</td><td>%s</td><td>%s</td></tr>
+
+
+<C-Right> or L or WTFPLMove [count] field forwards
+<C-Left> or E or HMove [count] field backwards (but see |csv-mapping-H| for the movement of H).
+<Up> or KMove [count] line s upwards within the same column
+<Down> or JMove [count] lines downw ards within the same column
+<Enter>                 Dynamically fold all lines away, that don't match
+                        the value in the current column. See |csv-filter|
+
+                        In |Replace-mode| and |Virtual-Replace-mode| does not
+                        create a new row, but instead moves the cursor to the
+                        beginning of the same column, one more line below.
+<Space>                 Dynamically fold all lines away, that match the value in the current column.
+<BS>                    Remove last item from the dynamic filter.
+
+"Syntastic
+<F7>
+>>>>>>> d1b4fa9d74ac24c833a74a3ccf87b6ef27ea30e7
