@@ -76,7 +76,7 @@ aunmenu Help.
 aunmenu Window.
 let no_buffers_menu=1
 set wildmenu                    " customize the wildmenu
-set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class,*/*.dSYM/*,*.dylib
+set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class
 set wildmode=list:full
 
 " Scrolling
@@ -137,7 +137,6 @@ autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 
 "----Plugins----
 " NERDtree
-nmap <leader>n :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
 "-- for win
@@ -145,21 +144,22 @@ let NERDTreeShowHidden=1
 "-- let g:NERDTreeDirArrowCollapsible = '*'
 " let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nmap <leader>n :NERDTreeToggle<cr>
 
 " TagBar 
-map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 0
 " set tags=$HOME/tags
+map <F4> :TagbarToggle<CR>
 
 " ConqueTerm
-nnoremap <F5> :ConqueTermSplit ipython<CR> " python interpreter
-" nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " debug-mode
-nnoremap <F6> :ConqueTermSplit scala<CR> " scala interpreter
 let g:ConqueTerm_PyVersion = 3
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
 let g:ConqueTerm_Color = 1
 autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR> " PEP8 code check
+nnoremap <F5> :ConqueTermSplit ipython<CR> " python interpreter
+" nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " debug-mode
+nnoremap <F6> :ConqueTermSplit scala<CR> " scala interpreter
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -184,7 +184,6 @@ menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 map <F8> :emenu Encoding.<TAB>
 
 " Ctrl-P
-nnoremap <leader>. :CtrlPTag<cr>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -192,6 +191,7 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 600
 let g:ctrlp_max_depth = 6
 let g:ctrlp_working_path_mode = 1
+nnoremap <leader>. :CtrlPTag<cr>
 
 " Vim-Airline
 colorscheme gruvbox 
@@ -199,3 +199,4 @@ set background=dark
 let g:airline_theme='gruvbox'
 " let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
