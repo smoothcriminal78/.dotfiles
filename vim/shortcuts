@@ -72,7 +72,18 @@
 <F7>
 
 " Git
-http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
+---vim diff
+:diffg RE  " get from REMOTE
+:diffg BA  " get from BASE
+:diffg LO  " get from LOCAL
+" Fugitive
+ :Git [any git command]
+
+" Gitgutter
+ jump to next hunk (change): ]c
+ jump to previous hunk (change): [c.
+ nmap <Leader>hs <Plug>GitGutterStageHunk
+ nmap <Leader>hu <Plug>GitGutterUndoHunk
 
 " CSV
 :WhatColumn - If you would like to know, on which column the cursor is

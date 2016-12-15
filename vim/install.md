@@ -29,6 +29,13 @@ Copy .ctags to ~
 --ipython
 sudo apt-get install ipython
 
+--Git
+http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
+git config merge.tool vimdiff
+git config merge.conflictstyle diff3
+git config mergetool.prompt false
+
+git mergetool
 
 --Vim
 :verbose imap <Tab> - which plugin utilizes the key

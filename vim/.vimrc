@@ -174,6 +174,11 @@ let g:syntastic_warning_symbol = 'x'
 let g:syntastic_style_warning_symbol = 'x'
 noremap <F7> :w<CR>:SyntasticCheck<CR>
 
+"----Git
+" Gitgutter 
+nmap <Leader>hs <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterUndoHunk
+
 " Encoding menu
 set wcm=<Tab>
 menu Encoding.koi8-r :e ++enc=koi8-r ++ff=unix<CR>
