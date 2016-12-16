@@ -179,7 +179,7 @@ noremap <F7> :w<CR>:SyntasticCheck<CR>
 
 " Snipmate
 :imap <C-J> <Plug>snipMateShow
-:imap <C-L> <Plug>snipMateNextOrTrigger
+:imap <C-L> <esc>a<Plug>snipMateNextOrTrigger
 :smap <C-L> <Plug>snipMateNextOrTrigger
 :imap <C-H> <Plug>snipMateBack
 :smap <C-H> <Plug>snipMateBack
