@@ -6,7 +6,6 @@ Plugin 'Shougo/unite.vim'               " Navigation between buffers and files
 " Unite settings
 nnoremap <F2> :Unite buffer<CR> " browse a list of the currently opened buffers
 
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-markdown'
 
 " CSS

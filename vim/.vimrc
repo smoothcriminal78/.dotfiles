@@ -16,6 +16,7 @@ Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes' " ---dependencies
 
 " Completion & snippets
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'garbas/vim-snipmate'            " Snippets manager
 Plugin 'MarcWeber/vim-addon-mw-utils'   " ---dependencies #1
 Plugin 'tomtom/tlib_vim'                " ---dependencies #2
@@ -174,8 +175,17 @@ let g:syntastic_warning_symbol = 'x'
 let g:syntastic_style_warning_symbol = 'x'
 noremap <F7> :w<CR>:SyntasticCheck<CR>
 
+" Youcompleteme
+
+" Snipmate
+:imap <C-J> <Plug>snipMateShow
+:imap <C-L> <Plug>snipMateNextOrTrigger
+:smap <C-L> <Plug>snipMateNextOrTrigger
+:imap <C-H> <Plug>snipMateBack
+:smap <C-H> <Plug>snipMateBack
+
 "----Git
-" Gitgutter 
+" Gitgutter
 nmap <Leader>hs <Plug>GitGutterStageHunk
 nmap <Leader>hu <Plug>GitGutterUndoHunk
 
