@@ -33,9 +33,9 @@
  <F11> execute the current file in a new terminal buffer 
 
 " Snipmate
- <Tab> to expand
- <S-Tab> snip back
- <C-R><Tab> Show all available snippets
+<C-J> - Show all available snippets
+<C-L> - expand
+<C-H> - snip back
 
 " Vim Surround
  Normal mode
