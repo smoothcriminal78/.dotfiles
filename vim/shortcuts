@@ -122,7 +122,8 @@
 <Space>                 Dynamically fold all lines away, that match the value in the current column.
 <BS>                    Remove last item from the dynamic filter.
 
-
+"Other
+:set fileformat=unix
 _____________________________________________________________________________________
 " TaskList
  <leader>t
