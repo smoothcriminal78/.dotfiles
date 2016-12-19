@@ -27,6 +27,7 @@ Plugin 'tpope/vim-commentary'           " Comment stuff out
 
 " Syntax hightlighting & colors
 Plugin 'scrooloose/syntastic'           " Syntax highlighting
+Plugin 'Tabular'                        " Script for text filtering and alignment
 Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Git
@@ -125,6 +126,7 @@ nnoremap <M-]> :vertical resize -5<cr>
 " changing between syntaxes
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=java<CR>
+nnoremap <leader>Tcsv :set ft=csv<CR>
 
 " autocomplete
 inoremap <C-space> <C-x><C-o>
