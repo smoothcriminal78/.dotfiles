@@ -126,7 +126,7 @@ nnoremap <M-]> :vertical resize -5<cr>
 " changing between syntaxes
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=java<CR>
-nnoremap <leader>Tcsv :set ft=csv<CR>
+nnoremap <leader>Ts :set ft=csv<CR>
 
 " autocomplete
 inoremap <C-space> <C-x><C-o>
