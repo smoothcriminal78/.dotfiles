@@ -72,6 +72,7 @@ set ttyfast
 set switchbuf=useopen
 set t_Co=256
 set laststatus=2
+set foldmethod=syntax
 
 " Menus
 aunmenu Help. 
