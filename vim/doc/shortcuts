@@ -40,12 +40,11 @@
 " Vim Surround
  Normal mode
  -----------
- ds  - delete a surrounding
- cs  - change a surrounding
- ys  - add a surrounding
+ ds{w/p/s/t} - delete a surrounding
+ cs{w/p/s/t} - change a surrounding
+ ys{w/p/s/t} - add a surrounding
+
  yS  - add a surrounding and place the surrounded text on a new line + indent it
- yss - add a surrounding to the whole line
- ySs - add a surrounding to the whole line, place it on a new line + indent it
  
  w - word
  p - paragraph
@@ -77,13 +76,12 @@
 :diffg BA  " get from BASE
 :diffg LO  " get from LOCAL
 " Fugitive
- :Git [any git command]
-
+:Git [any git command]
 " Gitgutter
- jump to next hunk (change): ]c
- jump to previous hunk (change): [c.
- nmap <Leader>hs <Plug>GitGutterStageHunk
- nmap <Leader>hu <Plug>GitGutterUndoHunk
+]c - jump to next hunk
+[c - jump to previous hunk
+nmap <Leader>hs <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterUndoHunk
 
 " CSV
 :WhatColumn - If you would like to know, on which column the cursor is
