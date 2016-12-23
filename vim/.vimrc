@@ -151,7 +151,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nmap <leader>n :NERDTreeToggle<cr>
 
 " TagBar 
-let g:tagbar_autofocus = 0
+let g:tagbar_autofocus = 1
 " set tags=$HOME/tags
 map <F4> :TagbarToggle<CR>
 
