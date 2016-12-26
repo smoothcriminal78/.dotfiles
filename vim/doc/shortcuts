@@ -123,15 +123,6 @@ nmap <Leader>hu <Plug>GitGutterUndoHunk
 "Other
 :set fileformat=unix
 _____________________________________________________________________________________
-" TaskList
- <leader>t
- q - Quit, and restore original cursor position.
- e - Exit, and keep results window open.
- <cr> - Quit and place the cursor on the selected line
-
-" CloseTag
- <table| Now you press >
-
 
 :nmap - Display normal mode maps
 :imap - Display insert mode maps
