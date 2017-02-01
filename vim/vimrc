@@ -17,10 +17,10 @@ Plugin 'vim-airline/vim-airline-themes' " ---dependencies
 
 " Completion & snippets
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'garbas/vim-snipmate'            " Snippets manager
-Plugin 'MarcWeber/vim-addon-mw-utils'   " ---dependencies #1
-Plugin 'tomtom/tlib_vim'                " ---dependencies #2
-Plugin 'honza/vim-snippets'             " ---snippets repo
+" Plugin 'garbas/vim-snipmate'            " Snippets manager
+" Plugin 'MarcWeber/vim-addon-mw-utils'   " ---dependencies #1
+" Plugin 'tomtom/tlib_vim'                " ---dependencies #2
+" Plugin 'honza/vim-snippets'             " ---snippets repo
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'rosenfeld/conque-term'          " Consoles as buffers
 Plugin 'tpope/vim-commentary'           " Comment stuff out
@@ -30,7 +30,6 @@ Plugin 'scrooloose/syntastic'           " Syntax highlighting
 Plugin 'Tabular'                        " Script for text filtering and alignment
 Plugin 'morhetz/gruvbox'                " Colorscheme
 
-Plugin 'klen/python-mode'	
 " Git
 Plugin 'fugitive.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -40,6 +39,21 @@ Plugin 'csv.vim'                        " CSV plugin
 
 " Scala
 Plugin 'derekwyatt/vim-scala'           " Scala plugin
+
+" --- JavaScript ---
+Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
+
+" --- HTML CSS ---
+Plugin 'mattn/emmet-vim'
+
+" Python
+Plugin 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
+Plugin 'mitsuhiko/vim-jinja'            " Jinja support for vim
+"Plugin 'davidhalter/jedi-vim'           " Awesome Python autocompletion with VIM
+"Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
+"Plugin 'hynek/vim-python-pep8-indent'   " PEP8 indent
+"Plugin 'jmcantrell/vim-virtualenv'      " Virtualenv support in VIM
+"Plugin 'mitsuhiko/vim-sparkup'          " Sparkup (XML/jinja/htlm-django/etc.) support
 
 " Other
 Plugin 'wesQ3/vim-windowswap'           " Swapping windows
@@ -147,9 +161,14 @@ let NERDTreeShowHidden=1
 "-- for win
 "-- let g:NERDTreeDirArrowExpandable = '>'
 "-- let g:NERDTreeDirArrowCollapsible = '*'
-" let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <leader>n :NERDTreeToggle<cr>
+
+" Paste mode
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 
 " TagBar 
 let g:tagbar_autofocus = 1
@@ -177,16 +196,19 @@ let g:syntastic_error_symbol = 'X'
 let g:syntastic_style_error_symbol = 'X'
 let g:syntastic_warning_symbol = 'x'
 let g:syntastic_style_warning_symbol = 'x'
-noremap <F7> :w<CR>:SyntasticCheck<CR>
+noremap <F7> :w<CR>:SyntasticToggleMode<CR>
 
 " Youcompleteme
 
 " Snipmate
-:imap <C-J> <Plug>snipMateShow
-:imap <C-L> <esc>a<Plug>snipMateNextOrTrigger
-:smap <C-L> <Plug>snipMateNextOrTrigger
-:imap <C-H> <Plug>snipMateBack
-:smap <C-H> <Plug>snipMateBack
+" :imap <C-J> <Plug>snipMateShow
+" :imap <C-L> <esc>a<Plug>snipMateNextOrTrigger
+" :smap <C-L> <Plug>snipMateNextOrTrigger
+" :imap <C-H> <Plug>snipMateBack
+" :smap <C-H> <Plug>snipMateBack
+
+" Python Mode
+"let g:pymode_python = 'python3'
 
 "----Git
 " Gitgutter
@@ -219,33 +241,3 @@ let g:airline_theme='gruvbox'
 " let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-
-let g:pymode_doc = 0
-let g:pymode_doc_key = 'K'
-" проверка кода
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_ignore="E501,W601,C0110"
-" провека кода после сохранения
-let g:pymode_lint_write = 1
-
-" поддержка virtualenv
-let g:pymode_virtualenv = 1
-
-" установка breakpoints
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
-
-" подстветка синтаксиса
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-" отключить autofold по коду
-let g:pymode_folding = 0
-
-" возможность запускать код
-let g:pymode_run = 1
-
-let g:pymode_rope = 0
