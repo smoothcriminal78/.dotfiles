@@ -13,11 +13,13 @@
  Press <c-d> to switch to filename only search instead of full path.
  Press <c-r> to switch to regexp mode.
  Use <c-j>, <c-k> or the arrow keys to navigate the result list.
- Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+ Use 	<c-t> open the selected entry in a new tab
+	<c-v>, <c-x> open the selected entry in a new split.
  Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
  Use <c-y> to create a new file and its parent directories.
  Use <c-z> to mark/unmark multiple files and <c-o> to open them.
  Use :diffthis when opening multiple files to run :diffthis on the first 4 files.
+ <leader>. - browse tags
 
 " Tagbar 
  <F4>
@@ -69,6 +71,17 @@
 
 " Syntastic
 <F7>
+
+" Python mode
+K 	Показать документацию
+<C-c>g 	Перейти к определению
+\r 	Запустить код
+[[ 	Перейти к предыдущему классу или функции
+]] 	Перейти к следующему классу или функции
+aC C 	Выполнить действие для класса. (vaC, daC, dC, yaC, yC, caC, cC)
+iC 	То же, находясь внутри класса. (viC, diC, yiC, ciC)
+aM M 	Выполнить действие для функции. (vaM, daM, dM, yaM, yM, caM, cM)
+iM 	То же, находясь внутри функции. (viM, diM, yiM, ciM)
 
 " Git
 ---vim diff
