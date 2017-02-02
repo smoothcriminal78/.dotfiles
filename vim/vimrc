@@ -14,22 +14,19 @@ Plugin 'majutsushi/tagbar'              " Class/module browser (Ctags required)
 " Status line
 Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes' " ---dependencies
+Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Completion & snippets
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 
-" Syntax hightlighting & colors
-Plugin 'scrooloose/syntastic'           " Syntax highlighting
-Plugin 'morhetz/gruvbox'                " Colorscheme
-
 " Git
 Plugin 'fugitive.vim'
 Plugin 'airblade/vim-gitgutter'
 
 " Scala
-"Plugin 'derekwyatt/vim-scala'           " Scala plugin
+Plugin 'derekwyatt/vim-scala'           " Scala plugin
 
 " Python
 Plugin 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
@@ -109,7 +106,7 @@ let mapleader=","
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
 " Settings for buffers
-map <C-q> :bd<CR>               " close current buffer
+noremap <S-q> :bd<CR>               " close current buffer
 noremap <C-Right> :bn<CR>       " move to next buffer
 noremap <C-Left> :bp<CR>        " move to previous buffer
 
@@ -120,8 +117,8 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
 " Change size for splitted windows
-nnoremap <M-[> :vertical resize +5<cr>
-nnoremap <M-]> :vertical resize -5<cr>
+" nnoremap <S-[> :vertical resize +5<cr>
+" nnoremap <S-]> :vertical resize -5<cr>
 
 " changing between syntaxes
 nnoremap <leader>Tp :set ft=python<CR>
@@ -131,13 +128,6 @@ nnoremap <leader>Tc :set ft=cs<CR>
 
 " autocomplete
 inoremap <C-space> <C-x><C-o>
-
-"----Filetype----
-" Python
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 formatoptions+=croq softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-
-" Vim
-autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 
 "----Plugins----
 " NERDtree
@@ -160,18 +150,6 @@ let g:tagbar_autofocus = 1
 " set tags=$HOME/tags
 map <F4> :TagbarToggle<CR>
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-"---Better :sign interface symbols
-let g:syntastic_error_symbol = 'X'
-let g:syntastic_style_error_symbol = 'X'
-let g:syntastic_warning_symbol = 'x'
-let g:syntastic_style_warning_symbol = 'x'
-noremap <F7> :w<CR>:SyntasticToggleMode<CR>
 
 " Youcompleteme
 let g:ycm_server_log_level = 'debug'
@@ -179,9 +157,11 @@ let g:ycm_server_use_vim_stdout = 1
 let g:ycm_confirm_extra_conf=0
 
 " Python Mode
-let g:pymode_python = 'python3'
-let g:pymode_rope = 0
-let g:pymode_lint_ignore = "W0611"
+" let g:pymode_python = 'python3'
+let g:pymode_rope = 1
+let g:pymode_lint = 1
+" let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257', 'pyflakes']
+" let g:pymode_lint_checkers = ['pep8']
 let g:pymode_lint_ignore="E501,W601"
 
 "----Git

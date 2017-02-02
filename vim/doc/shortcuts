@@ -144,3 +144,5 @@ ________________________________________________________________________________
 :xmap - Display visual mode maps
 :cmap - Display command-line mode maps
 :omap - Display operator pending mode maps
+
+:help key-notation
