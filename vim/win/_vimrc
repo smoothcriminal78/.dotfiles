@@ -56,7 +56,7 @@ set showmatch                   " show matching brackets/parenthesis
 set matchtime=0                 " don't blink when matching
 set showmode                    " show current mode down the bottom
 set smarttab                    " set smarttab
-"set encoding=utf-8              " utf-8 default encoding
+set encoding=utf-8              " utf-8 default encoding
 "set clipboard=unnamedplus       " use system clipboard
 set clipboard=unnamed
 set backspace=indent,eol,start
@@ -108,8 +108,8 @@ nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
 " Settings for buffers
 noremap <S-q> :bd<CR>               " close current buffer
-noremap <C-Right> :bn<CR>       " move to next buffer
-noremap <C-Left> :bp<CR>        " move to previous buffer
+noremap <A-Right> :bn<CR>       " move to next buffer
+noremap <A-Left> :bp<CR>        " move to previous buffer
 
 " Split navigations
 nnoremap <C-j> <C-w><C-j>
@@ -159,7 +159,7 @@ map <F4> :TagbarToggle<CR>
 
 " Python Mode
 " let g:pymode_python = 'python'
-let g:pymode_rope = 1
+let g:pymode_rope = 0
 let g:pymode_lint = 1
 " let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257', 'pyflakes']
 " let g:pymode_lint_checkers = ['pep8']
