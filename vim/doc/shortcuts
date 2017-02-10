@@ -146,3 +146,4 @@ ________________________________________________________________________________
 :omap - Display operator pending mode maps
 
 :help key-notation
+:write ++enc=utf-8 russian.txt - save in utf-8

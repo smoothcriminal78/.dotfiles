@@ -14,25 +14,46 @@ Plugin 'majutsushi/tagbar'              " Class/module browser (Ctags required)
 " Status line
 Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes' " ---dependencies
-Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Completion & snippets
 Plugin 'Valloric/YouCompleteMe'
+" Plugin 'garbas/vim-snipmate'            " Snippets manager
+" Plugin 'MarcWeber/vim-addon-mw-utils'   " ---dependencies #1
+" Plugin 'tomtom/tlib_vim'                " ---dependencies #2
+" Plugin 'honza/vim-snippets'             " ---snippets repo
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
+Plugin 'rosenfeld/conque-term'          " Consoles as buffers
 Plugin 'tpope/vim-commentary'           " Comment stuff out
+
+" Syntax hightlighting & colors
+Plugin 'scrooloose/syntastic'           " Syntax highlighting
+Plugin 'Tabular'                        " Script for text filtering and alignment
+Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Git
 Plugin 'fugitive.vim'
 Plugin 'airblade/vim-gitgutter'
 
+" CSV
+Plugin 'csv.vim'                        " CSV plugin
+
 " Scala
 Plugin 'derekwyatt/vim-scala'           " Scala plugin
 
+" --- JavaScript ---
+Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
+
+" --- HTML CSS ---
+Plugin 'mattn/emmet-vim'
+
 " Python
 Plugin 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
-
-" CSV
-Plugin 'csv.vim'                        " CSV plugin
+"Plugin 'mitsuhiko/vim-jinja'            " Jinja support for vim
+"Plugin 'davidhalter/jedi-vim'           " Awesome Python autocompletion with VIM
+"Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
+"Plugin 'hynek/vim-python-pep8-indent'   " PEP8 indent
+"Plugin 'jmcantrell/vim-virtualenv'      " Virtualenv support in VIM
+"Plugin 'mitsuhiko/vim-sparkup'          " Sparkup (XML/jinja/htlm-django/etc.) support
 
 " Other
 Plugin 'wesQ3/vim-windowswap'           " Swapping windows
@@ -101,22 +122,13 @@ set foldmethod=indent           " fold based on indent
 set foldnestmax=3               " deepest fold is 3 levels
 set nofoldenable                " dont fold by default
 
-" Mappings
 let mapleader=","
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
-" Buffers
-noremap <S-q> :bd<CR>
-noremap <C-Right> :bn<CR>
-noremap <C-Left> :bp<CR>
-
-" Tabs
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
+" Settings for buffers
+map <C-q> :bd<CR>               " close current buffer
+noremap <C-Right> :bn<CR>       " move to next buffer
+noremap <C-Left> :bp<CR>        " move to previous buffer
 
 " Split navigations
 nnoremap <C-j> <C-w><C-j>
@@ -125,17 +137,23 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
 " Change size for splitted windows
-" nnoremap <S-[> :vertical resize +5<cr>
-" nnoremap <S-]> :vertical resize -5<cr>
+nnoremap <M-[> :vertical resize +5<cr>
+nnoremap <M-]> :vertical resize -5<cr>
 
 " changing between syntaxes
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=java<CR>
-nnoremap <leader>Ts :set ft=scala<CR>
-nnoremap <leader>Tc :set ft=cs<CR>
+nnoremap <leader>Ts :set ft=csv<CR>
 
 " autocomplete
 inoremap <C-space> <C-x><C-o>
+
+"----Filetype----
+" Python
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 formatoptions+=croq softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+
+" Vim
+autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 
 "----Plugins----
 " NERDtree
@@ -158,18 +176,45 @@ let g:tagbar_autofocus = 1
 " set tags=$HOME/tags
 map <F4> :TagbarToggle<CR>
 
+" ConqueTerm
+let g:ConqueTerm_PyVersion = 3
+let g:ConqueTerm_StartMessages = 0
+let g:ConqueTerm_CloseOnEnd = 0
+let g:ConqueTerm_Color = 1
+autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR> " PEP8 code check
+nnoremap <F5> :ConqueTermSplit ipython<CR> " python interpreter
+" nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " debug-mode
+nnoremap <F6> :ConqueTermSplit scala<CR> " scala interpreter
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+"---Better :sign interface symbols
+let g:syntastic_error_symbol = 'X'
+let g:syntastic_style_error_symbol = 'X'
+let g:syntastic_warning_symbol = 'x'
+let g:syntastic_style_warning_symbol = 'x'
+noremap <F7> :w<CR>:SyntasticToggleMode<CR>
 
 " Youcompleteme
 let g:ycm_server_log_level = 'debug'
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_confirm_extra_conf=0
 
+" Snipmate
+" :imap <C-J> <Plug>snipMateShow
+" :imap <C-L> <esc>a<Plug>snipMateNextOrTrigger
+" :smap <C-L> <Plug>snipMateNextOrTrigger
+" :imap <C-H> <Plug>snipMateBack
+" :smap <C-H> <Plug>snipMateBack
+
 " Python Mode
-" let g:pymode_python = 'python3'
-let g:pymode_rope = 1
-let g:pymode_lint = 1
-" let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257', 'pyflakes']
-" let g:pymode_lint_checkers = ['pep8']
+let g:pymode_python = 'python3'
+let g:pymode_rope = 0
+let g:pymode_lint_ignore = "W0611"
 let g:pymode_lint_ignore="E501,W601"
 
 "----Git
