@@ -106,10 +106,18 @@ set nofoldenable                " dont fold by default
 let mapleader=","
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
-" Settings for buffers
+" Buffers
 noremap <S-q> :bd<CR>               " close current buffer
 noremap <A-Right> :bn<CR>       " move to next buffer
 noremap <A-Left> :bp<CR>        " move to previous buffer
+
+" Tabs
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
 
 " Split navigations
 nnoremap <C-j> <C-w><C-j>
