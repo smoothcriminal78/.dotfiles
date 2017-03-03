@@ -1,5 +1,10 @@
 set nocompatible
 filetype off
+
+if exists('py2') && has('python')
+elseif has('python3')
+endif
+
 set rtp+=~/.vim/bundle/Vundle.vim/
 
 call vundle#rc()
@@ -165,7 +170,7 @@ let g:ycm_server_use_vim_stdout = 1
 let g:ycm_confirm_extra_conf=0
 
 " Python Mode
-" let g:pymode_python = 'python3'
+let g:pymode_python = 'python3'
 let g:pymode_rope = 1
 let g:pymode_lint = 1
 " let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257', 'pyflakes']
