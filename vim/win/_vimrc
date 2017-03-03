@@ -26,6 +26,15 @@ Plugin 'tpope/vim-commentary'           " Comment stuff out
 Plugin 'fugitive.vim'
 Plugin 'airblade/vim-gitgutter'
 
+" --- JavaScript ---
+Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
+
+" --- HTML CSS ---
+Plugin 'mattn/emmet-vim'
+
+"  --- XML ---
+Plugin 'sukima/xmledit'
+
 " Scala
 Plugin 'derekwyatt/vim-scala'           " Scala plugin
 
@@ -68,7 +77,6 @@ set ttyfast
 set switchbuf=useopen
 set t_Co=256
 set laststatus=2
-set foldmethod=syntax
 
 " Menus
 aunmenu Help. 
@@ -104,6 +112,7 @@ set nofoldenable                " dont fold by default
 
 " Mappings
 let mapleader=","
+let maplocalleader = "\\"
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
 " Buffers
@@ -131,7 +140,8 @@ nnoremap <C-h> <C-w><C-h>
 
 " changing between syntaxes
 nnoremap <leader>Tp :set ft=python<CR>
-nnoremap <leader>Tj :set ft=java<CR>
+nnoremap <leader>Tj :set ft=javascript<CR>
+nnoremap <leader>Tx :set ft=xml<CR>
 nnoremap <leader>Ts :set ft=scala<CR>
 nnoremap <leader>Tc :set ft=cs<CR>
 
@@ -164,9 +174,10 @@ map <F4> :TagbarToggle<CR>
 " let g:ycm_server_log_level = 'debug'
 " let g:ycm_server_use_vim_stdout = 1
 " let g:ycm_confirm_extra_conf=0
+let g:loaded_youcompleteme = 1
 
 " Python Mode
-" let g:pymode_python = 'python'
+let g:pymode_python = 'python3'
 let g:pymode_rope = 0
 let g:pymode_lint = 1
 " let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257', 'pyflakes']
@@ -186,6 +197,13 @@ menu Encoding.cp866 :e ++enc=cp866 ++ff=dos<CR>
 menu Encoding.utf-8 :e ++enc=utf8 <CR>
 menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 map <F8> :emenu Encoding.<TAB>
+
+" Folding menu
+set wcm=<Tab>
+menu Folding.syntax :set foldmethod=syntax<CR>
+menu Folding.indent :set foldmethod=indent<CR>
+menu Folding.manual :set foldmethod=manual<CR>
+map <F9> :emenu Folding.<TAB>
 
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'

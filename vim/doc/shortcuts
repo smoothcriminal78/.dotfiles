@@ -147,3 +147,7 @@ ________________________________________________________________________________
 
 :help key-notation
 :write ++enc=utf-8 russian.txt - save in utf-8
+
+
+:v/calculate/d - remove all lines that don't match 'calculate'
+VG:normal @x - replay macro util end of buffer
