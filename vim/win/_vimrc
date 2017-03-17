@@ -18,9 +18,10 @@ Plugin 'vim-airline/vim-airline-themes' " ---dependencies
 Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Completion & snippets
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'tpope/vim-commentary'           " Comment stuff out
+Plugin 'vim-scripts/AutoComplPop'
 
 " Git
 Plugin 'fugitive.vim'
@@ -77,6 +78,7 @@ set ttyfast
 set switchbuf=useopen
 set t_Co=256
 set laststatus=2
+set completeopt=longest,menuone
 
 " Menus
 aunmenu Help. 
@@ -177,7 +179,9 @@ map <F4> :TagbarToggle<CR>
 " let g:ycm_server_log_level = 'debug'
 " let g:ycm_server_use_vim_stdout = 1
 " let g:ycm_confirm_extra_conf=0
-let g:loaded_youcompleteme = 1
+" let g:loaded_youcompleteme = 0
+" let g:ycm_filetype_blacklist = { 'python' : 1 }
+" let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
 
 " Python Mode
 let g:pymode_python = 'python3'
