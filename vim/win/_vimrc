@@ -21,7 +21,13 @@ Plugin 'morhetz/gruvbox'                " Colorscheme
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'tpope/vim-commentary'           " Comment stuff out
-Plugin 'vim-scripts/AutoComplPop'
+" Plugin 'vim-scripts/AutoComplPop'
+Plugin 'ervandew/supertab'
+
+Plugin 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets'
 
 " Git
 Plugin 'fugitive.vim'
