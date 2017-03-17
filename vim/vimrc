@@ -30,6 +30,12 @@ Plugin 'tpope/vim-commentary'           " Comment stuff out
 Plugin 'fugitive.vim'
 Plugin 'airblade/vim-gitgutter'
 
+" --- JavaScript ---
+Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
+
+" --- HTML CSS ---
+Plugin 'mattn/emmet-vim'
+
 " Scala
 Plugin 'derekwyatt/vim-scala'           " Scala plugin
 
@@ -135,7 +141,8 @@ nnoremap <C-h> <C-w><C-h>
 
 " changing between syntaxes
 nnoremap <leader>Tp :set ft=python<CR>
-nnoremap <leader>Tj :set ft=java<CR>
+nnoremap <leader>Tjava :set ft=java<CR>
+nnoremap <leader>Tjs :set ft=javascript<CR>
 nnoremap <leader>Ts :set ft=scala<CR>
 nnoremap <leader>Tc :set ft=cs<CR>
 
@@ -165,14 +172,15 @@ map <F4> :TagbarToggle<CR>
 
 
 " Youcompleteme
+let g:ycm_server_python_interpreter='/usr/local/bin/python3'
 let g:ycm_server_log_level = 'debug'
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_confirm_extra_conf=0
 
 " Python Mode
 let g:pymode_python = 'python3'
-let g:pymode_rope = 1
-let g:pymode_lint = 1
+let g:pymode_rope = 0
+let g:pymode_lint = 0
 " let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257', 'pyflakes']
 " let g:pymode_lint_checkers = ['pep8']
 let g:pymode_lint_ignore="E501,W601"
