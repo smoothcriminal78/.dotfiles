@@ -133,6 +133,19 @@ nmap <Leader>hu <Plug>GitGutterUndoHunk
 <Space>                 Dynamically fold all lines away, that match the value in the current column.
 <BS>                    Remove last item from the dynamic filter.
 
+" XML
+<LocalLeader><Space> Normal or Insert - Continue editing after the ending tag.
+<LocalLeader>w Normal - Will clear the entire file of left over xml_jump_string garbage.
+<LocalLeader>x Visual - Place a custom XML tag to suround the selected text. You
+        need to have selected text in visual mode before you can use this
+        mapping. 
+<LocalLeader>.   or      <LocalLeader>> Insert - Place a literal '>' without parsing tag.
+<LocalLeader>5   or      <LocalLeader>% Normal or Visual - Jump to the beginning or end tag.
+<LocalLeader>d Normal - Deletes the surrounding tags from the cursor. >
+<LocalLeader>c Visual - Wraps the current selection in comment tags and preserves
+        existing comments by substituting placeholders. You need to have
+        selected text in visual mode before you can use this mapping.
+
 "Other
 :set fileformat=unix
 _____________________________________________________________________________________
@@ -147,3 +160,22 @@ ________________________________________________________________________________
 
 :help key-notation
 :write ++enc=utf-8 russian.txt - save in utf-8
+
+
+:v/calculate/d - remove all lines that don't match 'calculate'
+VG:normal @x - replay macro util end of buffer
+:scriptnames - #Check what plugins are installed
+<leader> + e,v - #Open .vimrc
+:so % - #Reload .vimrc
+:args *.html - #Open multiple files in buffer
+:bufdo %s/pattern/replace/ge | update - #Search and replace across multiple files
+:1,50bw - #Wipeout multiple buffers
+:1,50bd - #Delete multiple buffers
+
+#Collapse/Expand HTML Tags
+zfat or zfit - to fold a tag
+za - to toggle tag
+zR - opens all folds in current document
+
+#Invalid NERDTree Bookmarks
+Edit `~/.NERDTreeBookmarks`
