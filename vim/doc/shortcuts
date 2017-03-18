@@ -22,6 +22,7 @@
  <leader>. - browse tags
 
 " Tagbar 
+p - move to tag staying in tag window
  <F4>
  <C-]>
  <C-T>

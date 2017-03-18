@@ -1,10 +1,5 @@
 set nocompatible
 filetype off
-
-if exists('py2') && has('python')
-elseif has('python3')
-endif
-
 set rtp+=~/.vim/bundle/Vundle.vim/
 
 call vundle#rc()
@@ -21,10 +16,22 @@ Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes' " ---dependencies
 Plugin 'morhetz/gruvbox'                " Colorscheme
 
-" Completion & snippets
-Plugin 'Valloric/YouCompleteMe'
+" Syntax
+Plugin 'scrooloose/syntastic' 
+
+" Completion
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/AutoComplPop'
+" Plugin 'Valloric/YouCompleteMe'
+
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'tpope/vim-commentary'           " Comment stuff out
+
+" Snippets
+Plugin 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets'
 
 " Git
 Plugin 'fugitive.vim'
@@ -35,6 +42,10 @@ Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation
 
 " --- HTML CSS ---
 Plugin 'mattn/emmet-vim'
+Plugin 'alvan/vim-closetag'
+
+"  --- XML ---
+Plugin 'sukima/xmledit'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'           " Scala plugin
@@ -78,7 +89,7 @@ set ttyfast
 set switchbuf=useopen
 set t_Co=256
 set laststatus=2
-set foldmethod=syntax
+set completeopt=longest,menuone
 
 " Menus
 aunmenu Help. 
@@ -112,14 +123,18 @@ set foldmethod=indent           " fold based on indent
 set foldnestmax=3               " deepest fold is 3 levels
 set nofoldenable                " dont fold by default
 
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+
 " Mappings
 let mapleader=","
+let maplocalleader = "\\"
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
 " Buffers
-noremap <S-q> :bd<CR>
-noremap <C-Right> :bn<CR>
-noremap <C-Left> :bp<CR>
+noremap <S-q> :bd<CR>               " close current buffer
+noremap <A-Right> :bn<CR>       " move to next buffer
+noremap <A-Left> :bp<CR>        " move to previous buffer
 
 " Tabs
 nnoremap <C-S-tab> :tabprevious<CR>
@@ -141,10 +156,14 @@ nnoremap <C-h> <C-w><C-h>
 
 " changing between syntaxes
 nnoremap <leader>Tp :set ft=python<CR>
-nnoremap <leader>Tjava :set ft=java<CR>
 nnoremap <leader>Tjs :set ft=javascript<CR>
+nnoremap <leader>Tj :set ft=java<CR>
 nnoremap <leader>Ts :set ft=scala<CR>
-nnoremap <leader>Tc :set ft=cs<CR>
+nnoremap <leader>Tsql :set ft=sql<CR>
+nnoremap <leader>Th :set ft=html<CR>
+nnoremap <leader>Tx :set ft=xml<CR>
+nnoremap <leader>Tcs :set ft=cs<CR>
+nnoremap <leader>Tcss :set ft=css<CR>
 
 " autocomplete
 inoremap <C-space> <C-x><C-o>
@@ -170,12 +189,17 @@ let g:tagbar_autofocus = 1
 " set tags=$HOME/tags
 map <F4> :TagbarToggle<CR>
 
+" Omni completion
+au FileType python setlocal omnifunc=python3complete#Complete
 
 " Youcompleteme
-let g:ycm_server_python_interpreter='/usr/local/bin/python3'
-let g:ycm_server_log_level = 'debug'
-let g:ycm_server_use_vim_stdout = 1
-let g:ycm_confirm_extra_conf=0
+" let g:ycm_server_python_interpreter='/usr/local/bin/python3'
+" let g:ycm_server_log_level = 'debug'
+" let g:ycm_server_use_vim_stdout = 1
+" let g:ycm_confirm_extra_conf=0
+" let g:loaded_youcompleteme = 0
+" let g:ycm_filetype_blacklist = { 'python' : 1 }
+" let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
 
 " Python Mode
 let g:pymode_python = 'python3'
@@ -198,6 +222,13 @@ menu Encoding.cp866 :e ++enc=cp866 ++ff=dos<CR>
 menu Encoding.utf-8 :e ++enc=utf8 <CR>
 menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 map <F8> :emenu Encoding.<TAB>
+
+" Folding menu
+set wcm=<Tab>
+menu Folding.syntax :set foldmethod=syntax<CR>
+menu Folding.indent :set foldmethod=indent<CR>
+menu Folding.manual :set foldmethod=manual<CR>
+map <F9> :emenu Folding.<TAB>
 
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
