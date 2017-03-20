@@ -180,3 +180,5 @@ zR - opens all folds in current document
 
 #Invalid NERDTree Bookmarks
 Edit `~/.NERDTreeBookmarks`
+dit - delete text between tag
+di< - delete html tag
