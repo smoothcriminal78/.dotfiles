@@ -17,13 +17,18 @@ Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes' " ---dependencies
 Plugin 'morhetz/gruvbox'                " Colorscheme
 
-" Completion & snippets
+" Syntax
+Plugin 'scrooloose/syntastic' 
+
+" Completion
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/AutoComplPop'
 " Plugin 'Valloric/YouCompleteMe'
+
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'tpope/vim-commentary'           " Comment stuff out
-" Plugin 'vim-scripts/AutoComplPop'
-Plugin 'ervandew/supertab'
 
+" Snippets
 Plugin 'garbas/vim-snipmate'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -38,6 +43,7 @@ Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation
 
 " --- HTML CSS ---
 Plugin 'mattn/emmet-vim'
+Plugin 'alvan/vim-closetag'
 
 "  --- XML ---
 Plugin 'sukima/xmledit'
@@ -151,10 +157,14 @@ nnoremap <C-h> <C-w><C-h>
 
 " changing between syntaxes
 nnoremap <leader>Tp :set ft=python<CR>
-nnoremap <leader>Tj :set ft=javascript<CR>
-nnoremap <leader>Tx :set ft=xml<CR>
+nnoremap <leader>Tjs :set ft=javascript<CR>
+nnoremap <leader>Tj :set ft=java<CR>
 nnoremap <leader>Ts :set ft=scala<CR>
-nnoremap <leader>Tc :set ft=cs<CR>
+nnoremap <leader>Tsql :set ft=sql<CR>
+nnoremap <leader>Th :set ft=html<CR>
+nnoremap <leader>Tx :set ft=xml<CR>
+nnoremap <leader>Tcs :set ft=cs<CR>
+nnoremap <leader>Tcss :set ft=css<CR>
 
 " autocomplete
 inoremap <C-space> <C-x><C-o>
@@ -180,8 +190,14 @@ let g:tagbar_autofocus = 1
 " set tags=$HOME/tags
 map <F4> :TagbarToggle<CR>
 
+" Omni completion
+au FileType python setlocal omnifunc=python3complete#Complete
+
+" supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Youcompleteme
+" let g:ycm_server_python_interpreter='/usr/local/bin/python3'
 " let g:ycm_server_log_level = 'debug'
 " let g:ycm_server_use_vim_stdout = 1
 " let g:ycm_confirm_extra_conf=0
