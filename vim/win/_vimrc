@@ -21,8 +21,8 @@ Plugin 'morhetz/gruvbox'                " Colorscheme
 Plugin 'scrooloose/syntastic' 
 
 " Completion
-Plugin 'ervandew/supertab'
-Plugin 'vim-scripts/AutoComplPop'
+" Plugin 'ervandew/supertab'
+" Plugin 'vim-scripts/AutoComplPop'
 " Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
@@ -90,7 +90,6 @@ set ttyfast
 set switchbuf=useopen
 set t_Co=256
 set laststatus=2
-set completeopt=longest,menuone
 
 " Menus
 aunmenu Help. 
@@ -167,7 +166,13 @@ nnoremap <leader>Tcs :set ft=cs<CR>
 nnoremap <leader>Tcss :set ft=css<CR>
 
 " autocomplete
+" set completeopt=longest,menuone
+set completeopt=menuone
 inoremap <C-space> <C-x><C-o>
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 
 "----Plugins----
 " NERDtree
