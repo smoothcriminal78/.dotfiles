@@ -1,5 +1,4 @@
-set nocompatible
-filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim/
 
 set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
@@ -22,7 +21,7 @@ Plugin 'scrooloose/syntastic'
 
 " Completion
 " Plugin 'ervandew/supertab'
-" Plugin 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/AutoComplPop'
 " Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
@@ -46,7 +45,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'alvan/vim-closetag'
 
 "  --- XML ---
-Plugin 'sukima/xmledit'
+" Plugin 'sukima/xmledit'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'           " Scala plugin
@@ -84,7 +83,6 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 set mousemodel=popup
 set ruler
-set completeopt-=preview
 set gcr=a:blinkon0
 set ttyfast
 set switchbuf=useopen
@@ -132,7 +130,7 @@ let maplocalleader = "\\"
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
 " Buffers
-noremap <S-q> :bd<CR>               " close current buffer
+noremap <S-q> :bd<CR>           " close current buffer
 noremap <A-Right> :bn<CR>       " move to next buffer
 noremap <A-Left> :bp<CR>        " move to previous buffer
 
@@ -166,13 +164,15 @@ nnoremap <leader>Tcs :set ft=cs<CR>
 nnoremap <leader>Tcss :set ft=css<CR>
 
 " autocomplete
-" set completeopt=longest,menuone
-set completeopt=menuone
+set completeopt-=preview
+set completeopt+=longest,menuone
 inoremap <C-space> <C-x><C-o>
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
-inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+" inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "<c-r>=snipMate#TriggerSnippet()<cr>"
+" inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 "----Plugins----
 " NERDtree
@@ -198,8 +198,12 @@ map <F4> :TagbarToggle<CR>
 " Omni completion
 au FileType python setlocal omnifunc=python3complete#Complete
 
+" SnipMate
+" :imap <C-L> <Plug>snipMateNextOrTrigger
+" :imap <C-H> <Plug>snipMateBack   
+
 " supertab
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Youcompleteme
 " let g:ycm_server_python_interpreter='/usr/local/bin/python3'
