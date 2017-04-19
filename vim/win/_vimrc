@@ -20,7 +20,7 @@ Plugin 'morhetz/gruvbox'                " Colorscheme
 Plugin 'scrooloose/syntastic' 
 
 " Completion
-" Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/AutoComplPop'
 " Plugin 'Valloric/YouCompleteMe'
 
@@ -122,6 +122,7 @@ set foldnestmax=3               " deepest fold is 3 levels
 set nofoldenable                " dont fold by default
 
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 
 " Mappings
@@ -167,12 +168,11 @@ nnoremap <leader>Tcss :set ft=css<CR>
 set completeopt-=preview
 set completeopt+=longest,menuone
 inoremap <C-space> <C-x><C-o>
-" inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "<c-r>=snipMate#TriggerSnippet()<cr>"
-" inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "<c-r>=snipMate#TriggerSnippet()<cr>"
+inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 "----Plugins----
 " NERDtree
@@ -203,7 +203,7 @@ au FileType python setlocal omnifunc=python3complete#Complete
 " :imap <C-H> <Plug>snipMateBack   
 
 " supertab
-" let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Youcompleteme
 " let g:ycm_server_python_interpreter='/usr/local/bin/python3'
