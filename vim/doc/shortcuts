@@ -172,6 +172,12 @@ To execute the macro on visually selected lines, press V and the j or k until th
 Then type :norm! @a and observe the that following input line is shown.  :'<,'>normal @a
 
 :v/calculate/d - remove all lines that don't match 'calculate'
+
+---VSelect only matching lines---
+:vimgrep pattern %
+:cwin
+---------------------------------
+
 :scriptnames - #Check what plugins are installed
 <leader> + e,v - #Open .vimrc
 :so % - #Reload .vimrc
