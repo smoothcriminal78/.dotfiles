@@ -168,7 +168,6 @@ nnoremap <leader>Tcsv :set ft=csv<CR>
 set completeopt-=preview
 set completeopt+=longest,menuone
 inoremap <C-space> <C-x><C-o>
-" inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 " inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "<c-r>=snipMate#TriggerSnippet()<cr>"
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
@@ -184,7 +183,8 @@ let NERDTreeShowHidden=1
 "-- let g:NERDTreeDirArrowCollapsible = '*'
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-nmap <leader>n :NERDTreeToggle<cr>
+" nmap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>n :NERDTree D:\<CR>
 
 " Paste mode
 nnoremap <F2> :set invpaste paste?<CR>
@@ -203,7 +203,7 @@ au FileType python setlocal omnifunc=python3complete#Complete
 " :imap <C-L> <Plug>snipMateNextOrTrigger
 " :imap <C-H> <Plug>snipMateBack   
 
-" supertab
+" Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Youcompleteme
@@ -218,7 +218,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " Python Mode
 let g:pymode_python = 'python3'
 let g:pymode_rope = 0
-let g:pymode_lint = 1
+let g:pymode_lint = 0
 " let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257', 'pyflakes']
 " let g:pymode_lint_checkers = ['pep8']
 let g:pymode_lint_ignore="E501,W601"
