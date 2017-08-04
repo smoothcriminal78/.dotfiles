@@ -19,6 +19,10 @@ Plugin 'morhetz/gruvbox'                " Colorscheme
 " Syntax
 Plugin 'scrooloose/syntastic' 
 
+" TODO
+Plugin 'freitass/todo.txt-vim'
+Plugin 'chikamichi/mediawiki.vim'
+
 " Completion
 Plugin 'ervandew/supertab'
 " Plugin 'vim-scripts/AutoComplPop'
