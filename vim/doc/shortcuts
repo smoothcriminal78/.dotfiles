@@ -20,6 +20,7 @@
  Use <c-z> to mark/unmark multiple files and <c-o> to open them.
  Use :diffthis when opening multiple files to run :diffthis on the first 4 files.
  <leader>. - browse tags
+	ctags -R --languages=python
 
 " Tagbar 
 p - move to tag staying in tag window
@@ -185,6 +186,7 @@ Then type :norm! @a and observe the that following input line is shown.  :'<,'>n
 :bufdo %s/pattern/replace/ge | update - #Search and replace across multiple files
 :1,50bw - #Wipeout multiple buffers
 :1,50bd - #Delete multiple buffers
+:lcd %:p:h
 
 #Collapse/Expand HTML Tags
 zfat or zfit - to fold a tag

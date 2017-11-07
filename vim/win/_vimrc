@@ -32,10 +32,10 @@ Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tag
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 
 " Snippets
-Plugin 'garbas/vim-snipmate'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'honza/vim-snippets'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'honza/vim-snippets'
 
 " Git
 Plugin 'fugitive.vim'
