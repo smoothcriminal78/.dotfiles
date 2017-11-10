@@ -188,7 +188,7 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " nmap <leader>n :NERDTreeToggle<cr>
-nnoremap <leader>n :NERDTreeToggle D:\<CR>
+nnoremap <leader>n :NERDTree D:\<CR>
 
 " Paste mode
 nnoremap <F2> :set invpaste paste?<CR>
