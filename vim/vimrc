@@ -90,10 +90,8 @@ set switchbuf=useopen
 set t_Co=256
 set laststatus=2
 
-au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+au BufNewFile,BufRead *.py set autoindent noexpandtab tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth=2
-" autocmd Filetype html setlocal ts=2 sts=2 sw=2
-" autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 
 " Menus
 aunmenu Help. 
