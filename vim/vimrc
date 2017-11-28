@@ -19,6 +19,10 @@ Plugin 'morhetz/gruvbox'                " Colorscheme
 " Syntax
 Plugin 'scrooloose/syntastic' 
 
+" TODO
+Plugin 'freitass/todo.txt-vim'
+Plugin 'chikamichi/mediawiki.vim'
+
 " Completion
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/AutoComplPop'
@@ -28,10 +32,10 @@ Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tag
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 
 " Snippets
-Plugin 'garbas/vim-snipmate'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'honza/vim-snippets'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'honza/vim-snippets'
 
 " Git
 Plugin 'fugitive.vim'
@@ -45,7 +49,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'alvan/vim-closetag'
 
 "  --- XML ---
-Plugin 'sukima/xmledit'
+" Plugin 'sukima/xmledit'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'           " Scala plugin
@@ -131,7 +135,7 @@ let maplocalleader = "\\"
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
 " Buffers
-noremap <S-q> :bd<CR>               " close current buffer
+noremap <S-q> :bd<CR>           " close current buffer
 noremap <A-Right> :bn<CR>       " move to next buffer
 noremap <A-Left> :bp<CR>        " move to previous buffer
 
@@ -163,8 +167,11 @@ nnoremap <leader>Th :set ft=html<CR>
 nnoremap <leader>Tx :set ft=xml<CR>
 nnoremap <leader>Tcs :set ft=cs<CR>
 nnoremap <leader>Tcss :set ft=css<CR>
-
+nnoremap <leader>Tcsv :set ft=csv<CR>
 " autocomplete
+set completeopt-=preview
+set completeopt+=longest,menuone
+" GUI mode
 " set completeopt=longest,menuone
 set completeopt=menuone
 inoremap <C-space> <C-x><C-o>
@@ -198,7 +205,11 @@ map <F4> :TagbarToggle<CR>
 " Omni completion
 au FileType python setlocal omnifunc=python3complete#Complete
 
-" supertab
+" SnipMate
+" :imap <C-L> <Plug>snipMateNextOrTrigger
+" :imap <C-H> <Plug>snipMateBack   
+
+" Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Youcompleteme
@@ -222,6 +233,11 @@ let g:pymode_lint_ignore="E501,W601"
 " Gitgutter
 nmap <Leader>hs <Plug>GitGutterStageHunk
 nmap <Leader>hu <Plug>GitGutterUndoHunk
+
+" Syntastic
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["scala"] }
 
 " Encoding menu
 set wcm=<Tab>

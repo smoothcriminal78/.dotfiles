@@ -25,7 +25,7 @@ Plugin 'chikamichi/mediawiki.vim'
 
 " Completion
 Plugin 'ervandew/supertab'
-" Plugin 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/AutoComplPop'
 " Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
@@ -87,11 +87,15 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 set mousemodel=popup
 set ruler
+set completeopt-=preview
 set gcr=a:blinkon0
 set ttyfast
 set switchbuf=useopen
 set t_Co=256
 set laststatus=2
+
+au BufNewFile,BufRead *.py set autoindent noexpandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth=2
 
 " Menus
 aunmenu Help. 
@@ -124,9 +128,6 @@ set linebreak                   " wrap lines at convenient points
 set foldmethod=indent           " fold based on indent
 set foldnestmax=3               " deepest fold is 3 levels
 set nofoldenable                " dont fold by default
-
-au BufNewFile,BufRead *.py set autoindent noexpandtab tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth=2
 
 " Mappings
 let mapleader=","
@@ -170,7 +171,10 @@ nnoremap <leader>Tcsv :set ft=csv<CR>
 " autocomplete
 set completeopt-=preview
 set completeopt+=longest,menuone
-inoremap <C-space> <C-x><C-o>
+" GUI mode
+" inoremap <C-Space> <C-x><C-o>
+" console mode
+inoremap <C-@> <C-x><C-o>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 " inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "<c-r>=snipMate#TriggerSnippet()<cr>"
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
