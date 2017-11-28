@@ -189,7 +189,8 @@ Then type :norm! @a and observe the that following input line is shown.  :'<,'>n
 :1,50bw - #Wipeout multiple buffers
 :1,50bd - #Delete multiple buffers
 
-+:lcd %:p:h
+lcd %:p:h
+%retab!
 
 #Collapse/Expand HTML Tags
 zfat or zfit - to fold a tag
