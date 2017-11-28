@@ -1,5 +1,5 @@
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-cp .vimrc ~/.vimrc
+~/.dotfiles/vim/vimrc ~/.vimrc
 
 pip install pyflakes pep8 pylint ipython
 
