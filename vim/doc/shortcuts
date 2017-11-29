@@ -165,6 +165,16 @@ ________________________________________________________________________________
 :help key-notation
 :write ++enc=utf-8 russian.txt - save in utf-8
 
+
+" Jedi-vim
+Completion <C-Space>
+Goto assignments <leader>g (typical goto function)
+Goto definitions <leader>d (follow identifier as far as possible, includes imports and statements)
+Show Documentation/Pydoc K (shows a popup with assignments)
+Renaming <leader>r
+Usages <leader>n (shows all the usages of a name)
+Open module, e.g. :Pyimport os (opens the os module)
+
 --macro
 VG:normal @x - replay macro util end of buffer
 Execute the macro stored in register a on lines 5 through 10.  :5,10normal @a
