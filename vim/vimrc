@@ -237,8 +237,11 @@ let g:pymode_lint = 0
 let g:pymode_lint_ignore="E501,W601"
 let g:pymode_virtualenv = 1
 
+let g:pymode_run_bind = '<leader>z'
+
 " Jedi-vim
 let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 1
 
 
 "----Git
