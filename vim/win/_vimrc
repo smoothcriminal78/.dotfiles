@@ -192,8 +192,8 @@ let NERDTreeShowHidden=1
 "-- let g:NERDTreeDirArrowCollapsible = '*'
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" nmap <leader>n :NERDTreeToggle<cr>
-nnoremap <leader>n :NERDTree D:\<CR>
+nmap <leader>n :NERDTreeToggle<cr>
+" nnoremap <leader>n :NERDTree D:\<CR>
 
 " Paste mode
 nnoremap <F2> :set invpaste paste?<CR>
@@ -237,13 +237,20 @@ let g:pymode_lint = 0
 " let g:pymode_lint_checkers = ['pep8']
 let g:pymode_lint_ignore="E501,W601"
 let g:pymode_virtualenv = 1
-
-let g:pymode_run_bind = '<leader>z'
+" let g:pymode_run_bind = '<leader>z'
 
 " Jedi-vim
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 1
+let g:jedi#use_tabs_not_buffers = 1
 
+let g:jedi#goto_command = "<localleader>d"
+let g:jedi#goto_assignments_command = "<localleader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<localleader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<localleader>r"
 
 "----Git
 " Gitgutter
