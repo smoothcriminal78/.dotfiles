@@ -96,7 +96,9 @@ set t_Co=256
 set laststatus=2
 
 au BufNewFile,BufRead *.py set autoindent noexpandtab tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.js,*.html,*.css set tabstop=2 softtabstop=2 shiftwidth=2
+
+autocmd BufNewFile,BufRead *.html set syntax=html
 
 " Menus
 aunmenu Help. 
@@ -174,9 +176,9 @@ nnoremap <leader>Tcsv :set ft=csv<CR>
 " set completeopt-=preview
 set completeopt=longest,menuone
 "--GUI mode
-inoremap <C-Space> <C-x><C-o>
+" inoremap <C-Space> <C-x><C-o>
 "--console mode
-" inoremap <C-@> <C-x><C-o>
+inoremap <C-@> <C-x><C-o>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 " inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "<c-r>=snipMate#TriggerSnippet()<cr>"
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
@@ -237,11 +239,20 @@ let g:pymode_lint = 0
 let g:pymode_lint_ignore="E501,W601"
 let g:pymode_virtualenv = 1
 
-let g:pymode_run_bind = '<leader>z'
+" let g:pymode_run_bind = '<leader>z'
 
 " Jedi-vim
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 1
+let g:jedi#use_tabs_not_buffers = 1
+
+let g:jedi#goto_command = "<localleader>d"
+let g:jedi#goto_assignments_command = "<localleader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<localleader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<localleader>r"
 
 
 "----Git

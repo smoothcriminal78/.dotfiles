@@ -201,6 +201,7 @@ Then type :norm! @a and observe the that following input line is shown.  :'<,'>n
 
 lcd %:p:h
 %retab!
+redraw! - redraw screen
 
 #Collapse/Expand HTML Tags
 zfat or zfit - to fold a tag
@@ -209,3 +210,4 @@ zR - opens all folds in current document
 
 dit - delete text between tag
 di< - delete html tag
+
