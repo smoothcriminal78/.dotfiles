@@ -71,8 +71,7 @@ filetype plugin indent on
 syntax on
 
 " General
-set visualbell t_vb=            " turn off error beep/flash
-set novisualbell                " turn off visual bell
+set noeb vb t_vb=               " disable beepsound
 set ls=2                        " always show status bar
 set incsearch                   " incremental search
 set hlsearch                    " highlighted search results
@@ -208,7 +207,7 @@ let g:tagbar_autofocus = 1
 map <F4> :TagbarToggle<CR>
 
 " Omni completion
-au FileType python setlocal omnifunc=python3complete#Complete
+" au FileType python setlocal omnifunc=python3complete#Complete
 
 " SnipMate
 " :imap <C-L> <Plug>snipMateNextOrTrigger
@@ -232,7 +231,9 @@ let g:pymode_python = 'python3'
 " disable autocomplete
 let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
+let g:pymode_rope_lookup_project = 0
 let g:pymode_rope_complete_on_dot = 0
+let g:pymode_folding = 0
 
 let g:pymode_lint = 0
 " let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257', 'pyflakes']
@@ -246,6 +247,8 @@ let g:pymode_virtualenv = 1
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 1
 let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#popup_on_dot = 0
+" let g:jedi#show_call_signatures = "0"
 
 let g:jedi#goto_command = "<localleader>d"
 let g:jedi#goto_assignments_command = "<localleader>g"
