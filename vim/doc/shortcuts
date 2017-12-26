@@ -211,3 +211,4 @@ zR - opens all folds in current document
 dit - delete text between tag
 di< - delete html tag
 
+:set fileformat=unix - remove ^M at line breaks
