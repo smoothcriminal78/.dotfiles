@@ -20,8 +20,8 @@ Plugin 'morhetz/gruvbox'                " Colorscheme
 Plugin 'scrooloose/syntastic' 
 
 " TODO
-Plugin 'freitass/todo.txt-vim'
-Plugin 'chikamichi/mediawiki.vim'
+" Plugin 'freitass/todo.txt-vim'
+" Plugin 'chikamichi/mediawiki.vim'
 
 " Completion
 Plugin 'ervandew/supertab'
