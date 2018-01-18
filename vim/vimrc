@@ -207,7 +207,6 @@ let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "passive_filetypes": ["scala"] }
 
-
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -226,3 +225,15 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Vim easy motion
 map <Leader> <Plug>(easymotion-prefix)
+"---to move to char
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+"---move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+"---move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+"---search
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
