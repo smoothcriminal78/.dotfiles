@@ -33,6 +33,9 @@ Plugin 'airblade/vim-gitgutter'
 " HTML
 Plugin 'mattn/emmet-vim'
 
+" JavaScript
+Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
+
 " Python
 Plugin 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
 Plugin 'davidhalter/jedi-vim'
@@ -40,8 +43,9 @@ Plugin 'davidhalter/jedi-vim'
 call vundle#end()
 
 " General
-syntax on
 filetype plugin indent on
+syntax on
+
 set encoding=utf-8              " utf-8 default encoding
 set clipboard=unnamed
 set gcr=a:blinkon0		" don't blink
@@ -140,7 +144,7 @@ map <F9> :emenu Folding.<TAB>
 " Options based on file type
 au BufNewFile,BufRead *.py set autoindent smartindent smarttab expandtab textwidth=120 tabstop=4 softtabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.js set tabstop=2 softtabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.html set syntax=html tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.html set syntax=html autoindent tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.css set tabstop=2 softtabstop=2 shiftwidth=2
 
 "----Plugins----
