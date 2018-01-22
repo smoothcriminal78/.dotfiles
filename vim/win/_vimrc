@@ -1,143 +1,84 @@
 set nocompatible
 filetype off
+
 set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+
 call vundle#begin('$USERPROFILE/vimfiles/bundle/')
-" let Vundle manage Vundle, required
+
 Plugin 'VundleVim/Vundle.vim'
 
 " Generic
 Plugin 'scrooloose/nerdtree'            " File browser
 Plugin 'kien/ctrlp.vim'                 " Working with buffers
 Plugin 'majutsushi/tagbar'              " Class/module browser (Ctags required)
+Plugin 'easymotion/vim-easymotion'      " Navigation
 
 " Status line
 Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes' " ---dependencies
 Plugin 'morhetz/gruvbox'                " Colorscheme
 
-" Syntax
-Plugin 'scrooloose/syntastic' 
-
-" TODO
-" Plugin 'freitass/todo.txt-vim'
-" Plugin 'chikamichi/mediawiki.vim'
-
-" Completion
-Plugin 'ervandew/supertab'
-" Plugin 'vim-scripts/AutoComplPop'
-" Plugin 'Valloric/YouCompleteMe'
-
-Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
+" Completion and text
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'jiangmiao/auto-pairs'		    " Insert/Delete brackets in pair
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 
-" Snippets
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'honza/vim-snippets'
+" Syntax
+Plugin 'scrooloose/syntastic' 
 
 " Git
 Plugin 'fugitive.vim'
 Plugin 'airblade/vim-gitgutter'
 
-" --- JavaScript ---
-Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
-
-" --- HTML CSS ---
+" HTML
 Plugin 'mattn/emmet-vim'
-Plugin 'alvan/vim-closetag'
-
-"  --- XML ---
-" Plugin 'sukima/xmledit'
-
-" Scala
-Plugin 'derekwyatt/vim-scala'           " Scala plugin
 
 " Python
 Plugin 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
-Plugin 'davidhalter/jedi-vim' 
+Plugin 'davidhalter/jedi-vim'
 
-" CSV
-Plugin 'csv.vim'                        " CSV plugin
-
-" Other
-Plugin 'wesQ3/vim-windowswap'           " Swapping windows
 call vundle#end()
 
-filetype on
-filetype plugin on
-filetype plugin indent on
-syntax on
-
 " General
+syntax on
+filetype plugin indent on
+set encoding=utf-8              " utf-8 default encoding
+set clipboard=unnamed
+set gcr=a:blinkon0		" don't blink
+set matchtime=0                 " don't blink when matching
 set noeb vb t_vb=               " disable beepsound
-set ls=2                        " always show status bar
+
+" Presentation
+colorscheme gruvbox 
+set background=dark
+set laststatus=2                " always show status bar
+set showmode                    " show current mode down the bottom
+set number                      " line numbers
+set ruler			            " show percentage within buffer
+
+" Search
 set incsearch                   " incremental search
 set hlsearch                    " highlighted search results
-set nu                          " line numbers
-set scrolloff=5                 " keep some more lines for scope
 set showmatch                   " show matching brackets/parenthesis
-set matchtime=0                 " don't blink when matching
-set showmode                    " show current mode down the bottom
-set smarttab                    " set smarttab
-set encoding=utf-8              " utf-8 default encoding
-"set clipboard=unnamedplus       " use system clipboard
-set clipboard=unnamed
-set backspace=indent,eol,start
-set mousemodel=popup
-set ruler
-set completeopt-=preview
-set gcr=a:blinkon0
-set ttyfast
-set switchbuf=useopen
-set t_Co=256
-set laststatus=2
-set autochdir
 
-" au BufNewFile,BufRead *.py set autoindent noexpandtab tabstop=4 shiftwidth=4 " use tabs for indentation
-au BufNewFile,BufRead *.py set autoindent expandtab textwidth=120 tabstop=4 softtabstop=4 shiftwidth=4 autoindent
-au BufNewFile,BufRead *.js,*.html,*.css set tabstop=2 softtabstop=2 shiftwidth=2
+" Menu
+set guioptions-=T               " hide toolbar
 
-autocmd BufNewFile,BufRead *.html set syntax=html
-
-" Menus
-aunmenu Help. 
-aunmenu Window.
-let no_buffers_menu=1
-set wildmenu                    " customize the wildmenu
-set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class
-set wildmode=list:full
-
-" Scrolling
-set scrolloff=4
-set sidescrolloff=15
-set sidescroll=1
-
-" Backup and swap
+" Backup
 set nobackup                    " no backup file
 set nowritebackup               " no backup file while editing
 set noswapfile                  " no swap file
 
-" Hide panels
-"set guioptions-=m              " menu
-set guioptions-=T               " toolbar
-"set guioptions-=r              " scrollbar
-
 " Wrapping
 set nowrap                      " no line wraps
-set linebreak                   " wrap lines at convenient points
 
 " Folding
 set foldmethod=indent           " fold based on indent
 set foldnestmax=3               " deepest fold is 3 levels
 set nofoldenable                " dont fold by default
 
-" Mappings
-let mapleader=","
-let maplocalleader = "\\"
-nnoremap <leader><space> :noh<cr>   " Clear search highlighting
-
 " Buffers
+set switchbuf=useopen
 noremap <S-q> :bd<CR>           " close current buffer
 noremap <A-Right> :bn<CR>       " move to next buffer
 noremap <A-Left> :bp<CR>        " move to previous buffer
@@ -156,11 +97,12 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
-" Change size for splitted windows
-" nnoremap <S-[> :vertical resize +5<cr>
-" nnoremap <S-]> :vertical resize -5<cr>
+" Mappings
+let mapleader=","
+let maplocalleader = "\\"
+nnoremap <leader><space> :noh<cr>   " Clear search highlighting
 
-" changing between syntaxes
+" Changing between syntaxes
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tjs :set ft=javascript<CR>
 nnoremap <leader>Tj :set ft=java<CR>
@@ -172,101 +114,13 @@ nnoremap <leader>Tcs :set ft=cs<CR>
 nnoremap <leader>Tcss :set ft=css<CR>
 nnoremap <leader>Tcsv :set ft=csv<CR>
 
-" autocomplete
-" set completeopt-=preview
+" Autocomplete
 set completeopt=longest,menuone
 "--GUI mode
-inoremap <C-Space> <C-x><C-o>
+" inoremap <C-Space> <C-x><C-o>
 "--console mode
-" inoremap <C-@> <C-x><C-o>
+inoremap <C-@> <C-x><C-o>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-" inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "<c-r>=snipMate#TriggerSnippet()<cr>"
-inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-
-"----Plugins----
-" NERDtree
-let g:NERDTreeDirArrows=0
-let NERDTreeShowHidden=1
-"-- for win
-"-- let g:NERDTreeDirArrowExpandable = '>'
-"-- let g:NERDTreeDirArrowCollapsible = '*'
-let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-nmap <leader>n :NERDTreeToggle<cr>
-" nnoremap <leader>n :NERDTree D:\<CR>
-
-" Paste mode
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
-set showmode
-
-" TagBar 
-let g:tagbar_autofocus = 1
-" set tags=$HOME/tags
-map <F4> :TagbarToggle<CR>
-
-" Omni completion
-" au FileType python setlocal omnifunc=python3complete#Complete
-
-" SnipMate
-" :imap <C-L> <Plug>snipMateNextOrTrigger
-" :imap <C-H> <Plug>snipMateBack   
-
-" Supertab
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" Youcompleteme
-" let g:ycm_server_python_interpreter='/usr/local/bin/python3'
-" let g:ycm_server_log_level = 'debug'
-" let g:ycm_server_use_vim_stdout = 1
-" let g:ycm_confirm_extra_conf=0
-" let g:loaded_youcompleteme = 0
-" let g:ycm_filetype_blacklist = { 'python' : 1 }
-" let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
-
-"-- Python
-" Python Mode
-let g:pymode_python = 'python3'
-" disable autocomplete
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_lookup_project = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_folding = 0
-
-let g:pymode_lint = 0
-" let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257', 'pyflakes']
-" let g:pymode_lint_checkers = ['pep8']
-let g:pymode_lint_ignore="E501,W601"
-let g:pymode_virtualenv = 1
-" let g:pymode_run_bind = '<leader>z'
-
-" Jedi-vim
-let g:jedi#popup_select_first = 0
-let g:jedi#completions_enabled = 1
-let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#popup_on_dot = 0
-" let g:jedi#show_call_signatures = "0"
-
-let g:jedi#goto_command = "<localleader>d"
-let g:jedi#goto_assignments_command = "<localleader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<localleader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<localleader>r"
-
-"----Git
-" Gitgutter
-nmap <Leader>hs <Plug>GitGutterStageHunk
-nmap <Leader>hu <Plug>GitGutterUndoHunk
-
-" Syntastic
-let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["scala"] }
 
 " Encoding menu
 set wcm=<Tab>
@@ -278,11 +132,82 @@ menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 map <F8> :emenu Encoding.<TAB>
 
 " Folding menu
-set wcm=<Tab>
 menu Folding.syntax :set foldmethod=syntax<CR>
 menu Folding.indent :set foldmethod=indent<CR>
 menu Folding.manual :set foldmethod=manual<CR>
 map <F9> :emenu Folding.<TAB>
+
+" Options based on file type
+au BufNewFile,BufRead *.py set autoindent smartindent smarttab expandtab textwidth=120 tabstop=4 softtabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.js set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.html set syntax=html tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.css set tabstop=2 softtabstop=2 shiftwidth=2
+
+"----Plugins----
+" NERDtree
+let g:NERDTreeDirArrows=0
+let NERDTreeShowHidden=1
+"-- for win
+"-- let g:NERDTreeDirArrowExpandable = '>'
+"-- let g:NERDTreeDirArrowCollapsible = '*'
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nmap <leader>n :NERDTreeToggle<cr>
+
+" TagBar 
+let g:tagbar_autofocus = 1
+" set tags=$HOME/tags
+map <F4> :TagbarToggle<CR>
+
+" Youcompleteme
+" win
+let g:ycm_global_ycm_extra_conf = '~/vimfiles/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_server_python_interpreter='/usr/local/bin/python3'
+" let g:ycm_server_log_level = 'debug'
+" let g:ycm_server_use_vim_stdout = 1
+" let g:ycm_confirm_extra_conf=0
+" let g:loaded_youcompleteme = 0
+" let g:ycm_global_ycm_extra_conf = 'to .ycm_extra_conf.py'
+let g:ycm_filetype_blacklist = { 'python' : 1 }
+" let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
+
+" Python Mode
+let g:pymode_python = 'python3'
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+" disable autocomplete
+let g:pymode_rope_lookup_project = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_folding = 0
+
+let g:pymode_lint = 0
+" let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257', 'pyflakes']
+" let g:pymode_lint_checkers = ['pep8']
+let g:pymode_lint_ignore="E501,W601"
+let g:pymode_virtualenv = 1
+
+" Jedi-vim
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 1
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#popup_on_dot = 1
+" let g:jedi#show_call_signatures = "0"
+let g:jedi#goto_command = "<localleader>d"
+let g:jedi#goto_assignments_command = "<localleader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<localleader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<localleader>r"
+
+" Gitgutter
+nmap <Leader>hs <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterUndoHunk
+
+" Syntastic
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["scala"] }
 
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
@@ -295,9 +220,22 @@ let g:ctrlp_working_path_mode = 1
 nnoremap <leader>. :CtrlPTag<cr>
 
 " Vim-Airline
-colorscheme gruvbox 
-set background=dark
-let g:airline_theme='gruvbox'
+" let g:airline_theme='gruvbox'
 " let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" Vim easy motion
+map <Leader> <Plug>(easymotion-prefix)
+"---to move to char
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+"---move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+"---move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+"---search
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
