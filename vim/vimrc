@@ -32,6 +32,9 @@ Plugin 'airblade/vim-gitgutter'
 " HTML
 Plugin 'mattn/emmet-vim'
 
+" JavaScript
+Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
+
 " Python
 Plugin 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
 Plugin 'davidhalter/jedi-vim'
