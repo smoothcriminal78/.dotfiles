@@ -1,7 +1,11 @@
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-~/.dotfiles/vim/vimrc ~/.vimrc
+--git clone https://github.com/VundleVim/Vundle.vim.git %USERPROFILE%/vimfiles/bundle/Vundle.vim
+ln -sf ~/.dotfiles/vim/vimrc ~/.vimrc
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+
+
 --prefix + I install plugin(s)
 --prefix + U updates plugin(s)
 --prefix + alt + u remove/uninstall plugins not on the plugin list

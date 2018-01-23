@@ -1,1 +1,1 @@
-ln -sf ~/.dotfiles/vim/.vimrc ~
+.dotfiles config
