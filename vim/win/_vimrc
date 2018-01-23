@@ -1,9 +1,13 @@
 set nocompatible
 filetype off
 
-set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-
-call vundle#begin('$USERPROFILE/vimfiles/bundle/')
+if has("win32")
+  set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+  call vundle#begin('$USERPROFILE/vimfiles/bundle/')
+else
+  set rtp+=~/.vim/bundle/Vundle.vim/
+  call vundle#rc()
+endif
 
 Plugin 'VundleVim/Vundle.vim'
 
@@ -43,12 +47,11 @@ Plugin 'davidhalter/jedi-vim'
 call vundle#end()
 
 " General
-filetype plugin indent on
 syntax on
-
+filetype plugin indent on
 set encoding=utf-8              " utf-8 default encoding
 set clipboard=unnamed
-set gcr=a:blinkon0		" don't blink
+set gcr=a:blinkon0		        " don't blink
 set matchtime=0                 " don't blink when matching
 set noeb vb t_vb=               " disable beepsound
 
@@ -66,6 +69,8 @@ set hlsearch                    " highlighted search results
 set showmatch                   " show matching brackets/parenthesis
 
 " Menu
+aunmenu Help.
+aunmenu Window.
 set guioptions-=T               " hide toolbar
 
 " Backup
@@ -144,7 +149,7 @@ map <F9> :emenu Folding.<TAB>
 " Options based on file type
 au BufNewFile,BufRead *.py set autoindent smartindent smarttab expandtab textwidth=120 tabstop=4 softtabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.js set tabstop=2 softtabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.html set syntax=html autoindent tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.html set syntax=html tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.css set tabstop=2 softtabstop=2 shiftwidth=2
 
 "----Plugins----
@@ -164,8 +169,6 @@ let g:tagbar_autofocus = 1
 map <F4> :TagbarToggle<CR>
 
 " Youcompleteme
-" win
-let g:ycm_global_ycm_extra_conf = '~/vimfiles/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " let g:ycm_server_python_interpreter='/usr/local/bin/python3'
 " let g:ycm_server_log_level = 'debug'
 " let g:ycm_server_use_vim_stdout = 1
