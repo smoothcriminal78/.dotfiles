@@ -1,5 +1,5 @@
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
---git clone https://github.com/VundleVim/Vundle.vim.git %USERPROFILE%/vimfiles/bundle/Vundle.vim
+--git clone https://github.com/VundleVim/Vundle.vim.git %USERPROFILE%/.vim/bundle/Vundle.vim
 ln -sf ~/.dotfiles/vim/vimrc ~/.vimrc
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
