@@ -12,6 +12,7 @@ Plugin 'kien/ctrlp.vim'                 " Working with buffers
 Plugin 'majutsushi/tagbar'              " Class/module browser (Ctags required)
 Plugin 'easymotion/vim-easymotion'      " Navigation
 
+
 " Status line
 Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes' " ---dependencies
@@ -19,6 +20,7 @@ Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Completion and text
 Plugin 'Valloric/YouCompleteMe'
+" Plugin 'vim-scripts/AutoComplPop'
 Plugin 'jiangmiao/auto-pairs'		    " Insert/Delete brackets in pair
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 
@@ -49,6 +51,7 @@ set clipboard=unnamed
 set gcr=a:blinkon0		        " don't blink
 set matchtime=0                 " don't blink when matching
 set noeb vb t_vb=               " disable beepsound
+set backspace=indent,eol,start
 
 " Presentation
 colorscheme gruvbox 
@@ -170,7 +173,7 @@ map <F4> :TagbarToggle<CR>
 " let g:ycm_confirm_extra_conf=0
 " let g:loaded_youcompleteme = 0
 " let g:ycm_global_ycm_extra_conf = 'to .ycm_extra_conf.py'
-let g:ycm_filetype_blacklist = { 'python' : 1 }
+" let g:ycm_filetype_blacklist = { 'python' : 1 }
 " let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
 
 " Python Mode
