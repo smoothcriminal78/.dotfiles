@@ -3,6 +3,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ln -sf ~/.dotfiles/vim/vimrc ~/.vimrc
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ln -sf ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
 
 
