@@ -5,6 +5,8 @@ ln -sf ~/.dotfiles/vim/vimrc ~/.vimrc
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -sf ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
+sudo apt-get install --assume-yes xclip
+bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 
 
 --prefix + I install plugin(s)
