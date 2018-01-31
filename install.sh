@@ -14,6 +14,7 @@ bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 --prefix + alt + u remove/uninstall plugins not on the plugin list
 
 
+sudo apt-get install vim-gtk
 --manual installation of tmux-resurrect
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/tmux
 
