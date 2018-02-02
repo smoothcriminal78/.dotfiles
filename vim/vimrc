@@ -36,6 +36,7 @@ Plugin 'mattn/emmet-vim'
 
 " JavaScript
 Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
+Plugin 'alvan/vim-closetag'
 
 " Python
 Plugin 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
@@ -52,6 +53,9 @@ set gcr=a:blinkon0		        " don't blink
 set matchtime=0                 " don't blink when matching
 set noeb vb t_vb=               " disable beepsound
 set backspace=indent,eol,start
+set mouse=a
+set pastetoggle=<F3>
+
 
 " Presentation
 colorscheme gruvbox 
