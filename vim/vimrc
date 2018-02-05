@@ -73,6 +73,7 @@ set showmatch                   " show matching brackets/parenthesis
 " Menu
 aunmenu Help.
 aunmenu Window.
+set wildmenu                    " customize the wildmenu
 set guioptions-=T               " hide toolbar
 
 " Backup
