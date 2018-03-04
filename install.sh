@@ -14,14 +14,20 @@ bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 --prefix + alt + u remove/uninstall plugins not on the plugin list
 
 
+
+-- linux packages
+# to fix zip unzip
+sudo apt-get install --reinstall p7zip-rar unrar
+# ctags 
+sudo apt-get install ctags
+# vim-gtk
 sudo apt-get install vim-gtk
---manual installation of tmux-resurrect
-git clone https://github.com/tmux-plugins/tmux-resurrect ~/tmux
-
+# python
 pip install pyflakes pep8 pylint ipython
-
---airline theme
-sudo cp vim/airline/themes/gruvbox.vim ~/.vim/bundle/vim-airline-themes/autoload/airline/themes
+# Git as a diff tool http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
+git config merge.tool vimdiff
+git config merge.conflictstyle diff3
+git config mergetool.prompt false
 
 --youcompleteme
 Install development tools and CMake: sudo apt-get install build-essential cmake
@@ -34,30 +40,6 @@ cd ~/.vim/bundle/YouCompleteMe
 Compiling YCM without semantic support for C-family languages:
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py
-
---ctags 
-sudo apt-get install ctags
-
-https://andrew.stwrt.ca/posts/vim-ctags/
-Add tags: ctags -R -f ./.git/tags .
-
-Copy .ctags to ~
-
---ipython
-sudo apt-get install ipython
-
---Git
-http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
-git config merge.tool vimdiff
-git config merge.conflictstyle diff3
-git config mergetool.prompt false
-
-git mergetool
-
---Vim
-:verbose imap <Tab> - which plugin utilizes the key
-
-
 
 INSTALLDIR=${INSTALLDIR:-"$PWD/.dotfiles"}
 create_symlinks () {

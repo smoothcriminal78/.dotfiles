@@ -212,3 +212,9 @@ dit - delete text between tag
 di< - delete html tag
 
 :set fileformat=unix - remove ^M at line breaks
+
+--Vim
+:verbose imap <Tab> - which plugin utilizes the key
+
+https://andrew.stwrt.ca/posts/vim-ctags/
+Add tags: ctags -R -f ./.git/tags .
