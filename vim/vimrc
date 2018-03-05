@@ -12,7 +12,6 @@ Plugin 'kien/ctrlp.vim'                 " Working with buffers
 Plugin 'majutsushi/tagbar'              " Class/module browser (Ctags required)
 Plugin 'easymotion/vim-easymotion'      " Navigation
 
-
 " Status line
 Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes' " ---dependencies
@@ -20,9 +19,11 @@ Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Completion and text
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'ervandew/supertab'
 " Plugin 'vim-scripts/AutoComplPop'
 Plugin 'jiangmiao/auto-pairs'		    " Insert/Delete brackets in pair
 Plugin 'tpope/vim-commentary'           " Comment stuff out
+" Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
 
 " Syntax
 Plugin 'scrooloose/syntastic' 
@@ -41,6 +42,9 @@ Plugin 'alvan/vim-closetag'
 " Python
 Plugin 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
 Plugin 'davidhalter/jedi-vim'
+
+" Other
+" Plugin 'freitass/todo.txt-vim'
 
 call vundle#end()
 
@@ -171,6 +175,9 @@ let g:tagbar_autofocus = 1
 " set tags=$HOME/tags
 map <F4> :TagbarToggle<CR>
 
+" SuperTab
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 " Youcompleteme
 " let g:ycm_server_python_interpreter='/usr/local/bin/python3'
 " let g:ycm_server_log_level = 'debug'
@@ -178,7 +185,7 @@ map <F4> :TagbarToggle<CR>
 " let g:ycm_confirm_extra_conf=0
 " let g:loaded_youcompleteme = 0
 " let g:ycm_global_ycm_extra_conf = 'to .ycm_extra_conf.py'
-" let g:ycm_filetype_blacklist = { 'python' : 1 }
+let g:ycm_filetype_blacklist = { 'python' : 1, 'html' : 1}
 " let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
 
 " Python Mode
