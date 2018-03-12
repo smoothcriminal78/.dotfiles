@@ -43,6 +43,9 @@ Plugin 'alvan/vim-closetag'
 Plugin 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
 Plugin 'davidhalter/jedi-vim'
 
+" Scala
+Plugin 'derekwyatt/vim-scala'
+
 " Other
 " Plugin 'freitass/todo.txt-vim'
 

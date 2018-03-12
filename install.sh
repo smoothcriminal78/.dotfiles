@@ -13,6 +13,8 @@ bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 --prefix + U updates plugin(s)
 --prefix + alt + u remove/uninstall plugins not on the plugin list
 
+--Bash-It
+git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 
 
 -- linux packages
