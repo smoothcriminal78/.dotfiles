@@ -25,6 +25,7 @@ sudo apt-get install ctags
 # vim-gtk
 sudo apt-get install vim-gtk
 # python
+sudo apt-get install pip
 pip install pyflakes pep8 pylint ipython
 # Git as a diff tool http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
 git config merge.tool vimdiff
