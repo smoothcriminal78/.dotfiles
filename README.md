@@ -26,7 +26,7 @@ sudo apt-get install vim-gtk
 -- tmux
 sudo apt-get install tmux
 -- python
-sudo apt-get install pip
+sudo apt-get install pip virtualenv
 sudo apt-get install python-dev python3-dev
 pip install pyflakes pep8 pylint ipython
 -- Git as a diff tool http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
