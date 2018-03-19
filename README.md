@@ -23,6 +23,8 @@ sudo apt-get install --reinstall p7zip-rar unrar
 sudo apt-get install ctags
 -- vim-gtk
 sudo apt-get install vim-gtk
+-- tmux
+sudo apt-get install tmux
 -- python
 sudo apt-get install pip
 sudo apt-get install python-dev python3-dev
