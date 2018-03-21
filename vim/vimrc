@@ -134,9 +134,9 @@ nnoremap <leader>Tcss :set ft=css<CR>
 nnoremap <leader>Tcsv :set ft=csv<CR>
 
 " Autocomplete
-set completeopt=longest,menuone
+set completeopt=menuone,longest,noinsert
 "--GUI mode
-" inoremap <C-Space> <C-x><C-o>
+" noremap <C-space> <C-x><C-o>
 "--console mode
 inoremap <C-@> <C-x><C-o>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
@@ -180,6 +180,7 @@ map <F4> :TagbarToggle<CR>
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "context"
 
 " Youcompleteme
 " let g:ycm_server_python_interpreter='/usr/local/bin/python3'

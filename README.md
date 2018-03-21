@@ -17,6 +17,7 @@ bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 
 -- linux packages
+sudo apt-get install curl
 -- to fix zip unzip
 sudo apt-get install --reinstall p7zip-rar unrar
 -- ctags 
@@ -33,3 +34,15 @@ pip install pyflakes pep8 pylint ipython
 git config merge.tool vimdiff
 git config merge.conflictstyle diff3
 git config mergetool.prompt false
+
+--node js
+sudo apt-get update
+sudo apt-get install nodejs
+*fix sudo ln -s /usr/bin/nodejs /usr/bin/node
+--npm
+sudo apt-get install npm
+--nvm
+curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh -o install_nvm.sh
+bash install_nvm.sh
+nvm ls-remote
+nvm install (last stable version number)
