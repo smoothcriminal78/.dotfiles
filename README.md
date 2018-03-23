@@ -38,6 +38,12 @@ git config mergetool.prompt false
 --node js
 sudo apt-get update
 sudo apt-get install nodejs
+
+--difftool
+git config --global mergetool.keepBackup false
+git config merge.tool vimdiff
+git config merge.conflictstyle diff3
+git config mergetool.prompt false
 *fix sudo ln -s /usr/bin/nodejs /usr/bin/node
 --npm
 sudo apt-get install npm
