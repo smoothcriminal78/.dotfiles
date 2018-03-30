@@ -260,3 +260,6 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 "---search
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+
+" todo.txt
+map <F10> :sp ~/todo.txt<CR>
