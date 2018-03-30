@@ -47,7 +47,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'derekwyatt/vim-scala'
 
 " Other
-" Plugin 'freitass/todo.txt-vim'
+Plugin 'freitass/todo.txt-vim'
 
 call vundle#end()
 
