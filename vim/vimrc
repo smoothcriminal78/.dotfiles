@@ -20,7 +20,7 @@ Plugin 'morhetz/gruvbox'                " Colorscheme
 " Completion and text
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
-" Plugin 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/AutoComplPop'
 Plugin 'jiangmiao/auto-pairs'		    " Insert/Delete brackets in pair
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
