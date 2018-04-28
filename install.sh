@@ -46,7 +46,6 @@ install_node(){
 	sudo apt-get install npm
 
 	echo "Installing Nvm"
-	curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh -o install_nvm.sh
 	bash install_nvm.sh
 
 	export NVM_DIR="$HOME/.nvm"
