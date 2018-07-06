@@ -18,7 +18,7 @@ Plugin 'vim-airline/vim-airline-themes' " ---dependencies
 Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Completion and text
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'jiangmiao/auto-pairs'		    " Insert/Delete brackets in pair

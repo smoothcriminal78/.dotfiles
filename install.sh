@@ -5,7 +5,7 @@ install_tmux(){
 	sudo apt-get install tmux
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	ln -sf ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
-
+	sudo chown -R $USER:$USER ~/.tmux
 
 	echo "[Tmux] Install plugins(s) Ctrl + a I"
 	echo "[Tmux] Update plugins(s) Ctrl + a U"
