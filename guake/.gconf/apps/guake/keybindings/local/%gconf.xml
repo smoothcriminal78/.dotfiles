@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="quit" mtime="1531302662" type="string">
+		<stringvalue>disabled</stringvalue>
+	</entry>
+	<entry name="next_tab" mtime="1531301692" type="string">
+		<stringvalue>&lt;Primary&gt;&lt;Shift&gt;Right</stringvalue>
+	</entry>
+	<entry name="previous_tab" mtime="1531301686" type="string">
+		<stringvalue>&lt;Primary&gt;&lt;Shift&gt;Left</stringvalue>
+	</entry>
+	<entry name="close_tab" mtime="1531302666" type="string">
+		<stringvalue>&lt;Primary&gt;&lt;Shift&gt;q</stringvalue>
+	</entry>
+	<entry name="new_tab" mtime="1531302668" type="string">
+		<stringvalue>&lt;Primary&gt;&lt;Shift&gt;t</stringvalue>
+	</entry>
+</gconf>

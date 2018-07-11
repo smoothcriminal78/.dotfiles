@@ -72,6 +72,8 @@ install_other(){
 	sudo mkdir /etc/gconf/schemas
 	cd /etc/gconf/schemas/
 	sudo ln -s /usr/share/gconf/schemas/guake.schemas
+
+	sudo ln -s ~/.dotfiles/guake/.gconf  ~/.gconf
 }
 
 
