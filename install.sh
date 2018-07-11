@@ -66,6 +66,12 @@ install_other(){
 	sudo apt-get install curl
 	sudo apt-get install --reinstall p7zip-rar unrar
 	sudo apt-get install ctags
+	
+	sudo apt-get install guake
+	# Guake schemas bug
+	sudo mkdir /etc/gconf/schemas
+	cd /etc/gconf/schemas/
+	sudo ln -s /usr/share/gconf/schemas/guake.schemas
 }
 
 
