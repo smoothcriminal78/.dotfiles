@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="palette_name" mtime="1531302615" type="string">
+	<entry name="palette_name" mtime="1532696951" type="string">
 		<stringvalue>Monokai</stringvalue>
 	</entry>
-	<entry name="palette" mtime="1531302615" type="string">
+	<entry name="palette" mtime="1532696951" type="string">
 		<stringvalue>#1C1C1D1D1919:#D0D01B1B2424:#A7A7D3D32C2C:#D8D8CFCF6767:#6161B8B8D0D0:#69695A5ABBBB:#D5D538386464:#FEFEFFFFFEFE:#1C1C1D1D1919:#D0D01B1B2424:#A7A7D3D32C2C:#D8D8CFCF6767:#6161B8B8D0D0:#69695A5ABBBB:#D5D538386464:#FEFEFFFFFEFE:#F6F6F5F5EEEE:#232325252626</stringvalue>
 	</entry>
-	<entry name="allow_bold" mtime="1531302615" type="bool" value="true"/>
+	<entry name="allow_bold" mtime="1532696951" type="bool" value="true"/>
 </gconf>

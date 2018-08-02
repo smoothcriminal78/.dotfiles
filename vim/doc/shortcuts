@@ -218,3 +218,12 @@ di< - delete html tag
 
 https://andrew.stwrt.ca/posts/vim-ctags/
 Add tags: ctags -R -f ./.git/tags .
+
+Vim as difftool
+git config merge.tool vimdiff
+git config merge.conflictstyle diff3
+git config mergetool.prompt false
+
+:diffg RE  " get from REMOTE
+:diffg BA  " get from BASE
+:diffg LO  " get from LOCAL"
