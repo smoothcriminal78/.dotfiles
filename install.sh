@@ -56,9 +56,13 @@ install_node(){
 
 install_python(){
 	echo "Installing Python"
-	sudo apt-get install --yes pip virtualenv
-	sudo apt-get install --yes python-dev python3-dev
-	pip install pyflakes pep8 pylint ipython
+	sudo apt-get install --yes virtualenv
+	sudo apt-get install --yes python-pip
+	sudo apt-get install --yes python-dev
+	sudo apt-get install --yes python3-dev
+	sudo pip install --upgrade pip
+	sudo pip install --upgrade virtualenv
+	sudo pip install pyflakes pep8 pylint ipython
 }
 
 install_other(){
