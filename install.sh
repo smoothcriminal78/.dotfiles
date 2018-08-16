@@ -70,7 +70,7 @@ install_other(){
 	sudo apt-get install --yes guake
 	# Dump settings
 	# gconftool-2 --dump /apps/guake > apps-guake.xml
-	# gconftool-2 --dump /schemas/apps/guake > schemas-apps-guake.xml
+	# gconftool-1 --dump /schemas/apps/guake > schemas-apps-guake.xml
 
 	# Restore
 	gconftool-2 --load ~/.dotfiles/guake/apps-guake.xml
