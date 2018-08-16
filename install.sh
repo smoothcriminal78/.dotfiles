@@ -2,7 +2,7 @@
 
 install_tmux(){
 	echo "Installing tmux"
-	sudo apt-get install tmux
+	sudo apt-get install --yes tmux
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	ln -sf ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 	sudo chown -R $USER:$USER ~/.tmux
@@ -15,8 +15,8 @@ install_tmux(){
 install_vim(){
 	echo "Installing Vim"
 	echo "Vim-gtk"
-	sudo apt-get install vim-gtk
-	sudo apt-get install --assume-yes xclip
+	sudo apt-get install --yes vim-gtk
+	sudo apt-get install --yes xclip
 	echo "Installing Vundle"
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	# for windows git clone https://github.com/VundleVim/Vundle.vim.git %USERPROFILE%/.vim/bundle/Vundle.vim
@@ -38,12 +38,12 @@ install_node(){
 
 	echo "Installing Node js"
 	sudo apt-get update
-	sudo apt-get install nodejs
+	sudo apt-get install --yes nodejs
 
 	#fix sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 	echo "Installing Npm"
-	sudo apt-get install npm
+	sudo apt-get install --yes npm
 
 	echo "Installing Nvm"
 	bash install_nvm.sh
@@ -56,24 +56,25 @@ install_node(){
 
 install_python(){
 	echo "Installing Python"
-	sudo apt-get install pip virtualenv
-	sudo apt-get install python-dev python3-dev
+	sudo apt-get install --yes pip virtualenv
+	sudo apt-get install --yes python-dev python3-dev
 	pip install pyflakes pep8 pylint ipython
 }
 
 install_other(){
 	echo "Installing other linux packages"
-	sudo apt-get install curl
+	sudo apt-get install --yes curl
 	sudo apt-get install --reinstall p7zip-rar unrar
-	sudo apt-get install ctags
+	sudo apt-get install --yes ctags
 	
-	sudo apt-get install guake
-	# Guake schemas bug
-	sudo mkdir /etc/gconf/schemas
-	cd /etc/gconf/schemas/
-	sudo ln -s /usr/share/gconf/schemas/guake.schemas
+	sudo apt-get install --yes guake
+	# Dump settings
+	# gconftool-2 --dump /apps/guake > apps-guake.xml
+	# gconftool-2 --dump /schemas/apps/guake > schemas-apps-guake.xml
 
-	sudo ln -s ~/.dotfiles/guake/.gconf  ~/.gconf
+	# Restore
+	gconftool-2 --load ~/.dotfiles/guake/apps-guake.xml
+	gconftool-2 --load ~/.dotfiles/guake/schemas-apps-guake.xml
 }
 
 
