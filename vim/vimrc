@@ -24,6 +24,7 @@ Plugin 'vim-scripts/AutoComplPop'
 Plugin 'jiangmiao/auto-pairs'		    " Insert/Delete brackets in pair
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
+Plugin 'tpope/vim-repeat'
 
 " Syntax
 Plugin 'scrooloose/syntastic' 
