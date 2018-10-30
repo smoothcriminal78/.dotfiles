@@ -79,6 +79,10 @@ install_other(){
 	# Restore
 	gconftool-2 --load ~/.dotfiles/guake/apps-guake.xml
 	gconftool-2 --load ~/.dotfiles/guake/schemas-apps-guake.xml
+
+	# Gyazo
+	curl -s https://packagecloud.io/install/repositories/gyazo/gyazo-for-linux/script.deb.sh | sudo bash
+	sudo apt-get install gyazo
 }
 
 
