@@ -76,6 +76,9 @@ install_other(){
 	# gconftool-2 --dump /apps/guake > apps-guake.xml
 	# gconftool-1 --dump /schemas/apps/guake > schemas-apps-guake.xml
 
+	# YCM ycm_extra_conf.py
+	cp ~/.dotfiles/ycm/.ycm_extra_conf.py ~/.ycm_extra_conf.py
+
 	# Restore
 	gconftool-2 --load ~/.dotfiles/guake/apps-guake.xml
 	gconftool-2 --load ~/.dotfiles/guake/schemas-apps-guake.xml
