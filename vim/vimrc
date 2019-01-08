@@ -18,7 +18,7 @@ Plugin 'vim-airline/vim-airline-themes' " ---dependencies
 Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Completion and text
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'jiangmiao/auto-pairs'		    " Insert/Delete brackets in pair
@@ -190,8 +190,8 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " let g:ycm_server_use_vim_stdout = 1
 " let g:ycm_confirm_extra_conf=0
 " let g:loaded_youcompleteme = 0
-" let g:ycm_global_ycm_extra_conf = 'to .ycm_extra_conf.py'
-let g:ycm_filetype_blacklist = { 'python' : 1, 'html' : 1}
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_filetype_blacklist = { 'python' : 1, 'html' : 1 }
 " let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
 
 " Python Mode

@@ -230,3 +230,6 @@ git config mergetool.prompt false
 
 :as or keystroke: ga - This command displays the code point of the character under the cursor.
 keystroke: g8 - This command displays the hexadecimal value of the bytes used to represent the character under the cursor.
+
+# to hex - :%!xxd
+# back from hex - :%!xxd -r
