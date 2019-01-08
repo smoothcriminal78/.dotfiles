@@ -227,3 +227,6 @@ git config mergetool.prompt false
 :diffg RE  " get from REMOTE
 :diffg BA  " get from BASE
 :diffg LO  " get from LOCAL"
+
+:as or keystroke: ga - This command displays the code point of the character under the cursor.
+keystroke: g8 - This command displays the hexadecimal value of the bytes used to represent the character under the cursor.
