@@ -86,6 +86,10 @@ install_other(){
 	# Gyazo
 	curl -s https://packagecloud.io/install/repositories/gyazo/gyazo-for-linux/script.deb.sh | sudo bash
 	sudo apt-get install gyazo
+
+	# Bash .profile
+	mv ~/.profile ~/.profile.bak
+	ln -sf ~/.dotfiles/bash/.profile ~/.profile
 }
 
 
