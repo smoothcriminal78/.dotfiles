@@ -25,3 +25,31 @@ function backup () {
     echo "Backed up $1 to $newname.";
     cp -p $newname $1;
 }
+
+function hideme () {
+  if [[ -n "$1" ]] 
+    then
+    case "$1" in
+      -s | --stop ) 
+        sudo killall openvpn 
+        return 0
+      ;;
+      *)
+        echo "Option $1 not recognized"
+        return 1
+      ;;
+    esac
+  else
+    sudo killall openvpn
+    sudo openvpn --config ~/client1.ovpn > /dev/null &
+  fi
+
+  return 0
+}
+
+function whatsmyip () {
+    echo "Your ip is:"
+    dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
+}
+
+alias ls='ls -ahl'
