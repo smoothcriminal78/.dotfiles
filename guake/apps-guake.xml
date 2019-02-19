@@ -171,7 +171,7 @@
       <key>general/use_default_font</key>
       <schema_key>/schemas/apps/guake/general/use_default_font</schema_key>
       <value>
-        <bool>true</bool>
+        <bool>false</bool>
       </value>
     </entry>
     <entry>
@@ -192,7 +192,7 @@
       <key>general/use_popup</key>
       <schema_key>/schemas/apps/guake/general/use_popup</schema_key>
       <value>
-        <bool>true</bool>
+        <bool>false</bool>
       </value>
     </entry>
     <entry>
@@ -233,14 +233,14 @@
     <entry>
       <key>general/window_height</key>
       <value>
-        <int>60</int>
+        <int>73</int>
       </value>
     </entry>
     <entry>
       <key>general/window_height_f</key>
       <schema_key>/schemas/apps/guake/general/window_height_f</schema_key>
       <value>
-        <float>60.370399999999997</float>
+        <float>73.287000000000006</float>
       </value>
     </entry>
     <entry>
@@ -576,21 +576,21 @@
       <key>style/font/palette</key>
       <schema_key>/schemas/apps/guake/style/font/palette</schema_key>
       <value>
-        <string>#252529292A2A:#F2F248484040:#626296965555:#B6B688880000:#20207575C7C7:#79797F7FD4D4:#151596968D8D:#D2D2D8D8D9D9:#252529292A2A:#F2F248484040:#626296965555:#B6B688880000:#20207575C7C7:#79797F7FD4D4:#151596968D8D:#D2D2D8D8D9D9:#D2D2D8D8D9D9:#3D3D3F3F4141</string>
+        <string>#151517171C1C:#ECEC5F5F6767:#8080A7A76363:#FDFDC2C25353:#54548585C0C0:#BFBF8383C0C0:#5757C2C2C0C0:#EEEEECECE7E7:#555555555555:#FFFF69697373:#9393D3D39393:#FFFFD1D15656:#4D4D8383D0D0:#FFFF5555FFFF:#8383E8E8E4E4:#FFFFFFFFFFFF:#BDBDB9B9AEAE:#212121212121</string>
       </value>
     </entry>
     <entry>
       <key>style/font/palette_name</key>
       <schema_key>/schemas/apps/guake/style/font/palette_name</schema_key>
       <value>
-        <string>Solarized Darcula</string>
+        <string>Space Gray Eighties</string>
       </value>
     </entry>
     <entry>
       <key>style/font/style</key>
       <schema_key>/schemas/apps/guake/style/font/style</schema_key>
       <value>
-        <string>Monospace 10</string>
+        <string>Monospace 12</string>
       </value>
     </entry>
   </entrylist>
