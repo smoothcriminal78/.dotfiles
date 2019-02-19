@@ -201,6 +201,11 @@ Then type :norm! @a and observe the that following input line is shown.  :'<,'>n
 
 lcd %:p:h
 %retab!
+
+Convert tabs to spaces
+  :set expandtab
+  :retab
+
 redraw! - redraw screen
 
 #Collapse/Expand HTML Tags

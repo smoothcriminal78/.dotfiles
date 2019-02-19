@@ -74,14 +74,21 @@ install_other(){
 	sudo apt-get install --yes guake
 	# Dump settings
 	# gconftool-2 --dump /apps/guake > apps-guake.xml
-	# gconftool-1 --dump /schemas/apps/guake > schemas-apps-guake.xml
-
-	# YCM ycm_extra_conf.py
-	cp ~/.dotfiles/ycm/.ycm_extra_conf.py ~/.ycm_extra_conf.py
+	# gconftool-2 --dump /schemas/apps/guake > schemas-apps-guake.xml
 
 	# Restore
 	gconftool-2 --load ~/.dotfiles/guake/apps-guake.xml
 	gconftool-2 --load ~/.dotfiles/guake/schemas-apps-guake.xml
+
+	# List profiles:
+	# dconf dump /org/gnome/terminal/legacy/profiles:/ | grep -e "\[\:\|visible-name"
+	# Dump console settings
+	# dconf dump /org/gnome/terminal/legacy/profiles:/:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ > profile.dconf
+	# Load console profile
+	dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ <  ~/.dotfiles/bash/dconf/profile.dconf
+
+	# YCM ycm_extra_conf.py
+	cp ~/.dotfiles/ycm/.ycm_extra_conf.py ~/.ycm_extra_conf.py
 
 	# Gyazo
 	curl -s https://packagecloud.io/install/repositories/gyazo/gyazo-for-linux/script.deb.sh | sudo bash
