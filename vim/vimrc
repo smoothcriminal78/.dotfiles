@@ -232,7 +232,7 @@ let g:jedi#rename_command = "<localleader>r"
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 " Snippets
-let g:UltiSnipsExpandTrigger="<c-u>"
+let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical" " :UltiSnipsEdit to split your window.
