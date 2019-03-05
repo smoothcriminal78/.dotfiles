@@ -22,13 +22,18 @@
 
 " Ctags
  <leader>. - browse tags
-ctags -R --languages=python
+ ctags -R --languages=python
+ ctags -R --c++-kinds=+p --fields=+iaS --extra=+q /usr/include	
+
+ Ctrl+] - go to definition
+ Ctrl+W Ctrl+] - Open the definition in a horizontal split
+ Ctrl+\ - Open the definition in a new tab
+ Ctrl+Left MouseClick - Go to definition
+ Ctrl+Right MouseClick - Jump back from definition
  
 " Tagbar 
-p - move to tag staying in tag window
- <F4>
- <C-]>
- <C-T>
+ <F4> - open tag bar
+ p - move to tag staying in tag window
 
 " ConqueTerm
  :ConqueTerm bash
