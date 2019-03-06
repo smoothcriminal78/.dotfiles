@@ -55,6 +55,7 @@ Plugin 'derekwyatt/vim-scala'
 
 " Other
 Plugin 'freitass/todo.txt-vim'
+Plugin 'mhinz/vim-startify'
 
 call vundle#end()
 
