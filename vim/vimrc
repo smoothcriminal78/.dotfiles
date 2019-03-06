@@ -288,3 +288,17 @@ omap / <Plug>(easymotion-tn)
 
 " todo.txt
 map <F10> :sp ~/todo.txt<CR>
+
+" startify
+let g:startify_custom_header = [
+      \ '          ______________              ',
+      \ '         |              |             ',
+      \ '         | hello smooth |             ',
+      \ '         |______________|             ',
+      \ '                o                     ',
+      \ '                 o   ^__^             ',
+      \ '                  o  (oo)\_______     ',
+      \ '                     (__)\       )\   ',
+      \ '                         ||----w |    ',
+      \ '                         ||     ||    ',
+      \]
