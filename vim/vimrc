@@ -147,7 +147,7 @@ set completeopt=menuone,longest,noinsert
 " noremap <C-space> <C-x><C-o>
 "--console mode
 inoremap <C-@> <C-x><C-o>
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 " Encoding menu
 set wcm=<Tab>
@@ -239,12 +239,18 @@ let g:jedi#rename_command = "<localleader>r"
 
 " Jinja
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+autocmd FileType jinja setlocal commentstring=\{#%s#}
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical" " :UltiSnipsEdit to split your window.
+
+" Emmet
+" let g:user_emmet_install_global = 0
+" autocmd FileType html,css EmmetInstall
+" let g:user_emmet_leader_key='<C-Y>'
 
 " Gitgutter
 nmap <Leader>hs <Plug>GitGutterStageHunk
@@ -288,6 +294,9 @@ omap / <Plug>(easymotion-tn)
 
 " todo.txt
 map <F10> :sp ~/todo.txt<CR>
+
+" compile C program
+map <F12> :w <CR> :!g++ % -o %< && ./%< <CR>
 
 " startify
 let g:startify_custom_header = [
