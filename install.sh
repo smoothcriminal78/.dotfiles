@@ -97,6 +97,10 @@ install_other(){
 	# Bash .profile
 	mv ~/.profile ~/.profile.bak
 	ln -sf ~/.dotfiles/bash/.profile ~/.profile
+
+	# TODO.txt
+	mkdir ~/.todo
+	cp ~/.dotfiles/todo.txt/config ~/.todo/config
 }
 
 

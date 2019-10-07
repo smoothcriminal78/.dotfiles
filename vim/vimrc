@@ -167,6 +167,7 @@ map <F9> :emenu Folding.<TAB>
 " Options based on file type
 au BufNewFile,BufRead *.sh set tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.cpp set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+au BufNewFile,BufRead *.c set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 au BufNewFile,BufRead *.py set autoindent smartindent smarttab expandtab textwidth=120 tabstop=4 softtabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.js set tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.html set syntax=html tabstop=2 softtabstop=2 shiftwidth=2
@@ -292,11 +293,18 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
+" Vim closetag
+let g:closetag_filenames = '*.xml,*.html,*.xhtml'
+
 " todo.txt
-map <F10> :sp ~/todo.txt<CR>
+map <F2> :sp ~/todo.txt<CR>
+
+" todo.txt
+map <F10> :sp ~/help.txt<CR>
 
 " compile C program
-map <F12> :w <CR> :!g++ % -o %< && ./%< <CR>
+" map <F12> :w <CR> :!g++ % -o %< && ./%< <CR>
+map <F12> :w <CR> :!cc % -o %< && ./%< <CR>
 
 " startify
 let g:startify_custom_header = [

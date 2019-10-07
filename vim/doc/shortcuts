@@ -243,3 +243,11 @@ keystroke: g8 - This command displays the hexadecimal value of the bytes used to
 
 # to hex - :%!xxd
 # back from hex - :%!xxd -r
+
+tmux Panes Management
+ (:swap-pane -U) - move current pane up
+ (:swap-pane -D) - move current pane down
+ <C-a>{ (:swap-pane -L) - move current pane to the left
+ <C-a>} (:swap-pane -R) - move current pane to the right
+ <C-a>q - show pane numbers (type number to move cursor)
+ <C-a><Space> - toggle pane arrangements
