@@ -95,12 +95,15 @@ install_other(){
 	sudo apt-get install gyazo
 
 	# Bash .profile
-	mv ~/.profile ~/.profile.bak
-	ln -sf ~/.dotfiles/bash/.profile ~/.profile
+	# mv ~/.profile ~/.profile.bak
+	# ln -sf ~/.dotfiles/bash/.profile ~/.profile
 
-	# TODO.txt
-	mkdir ~/.todo
-	cp ~/.dotfiles/todo.txt/config ~/.todo/config
+	mv ~/.bashrc ~/.bashrc.bak
+	ln -sf ~/.dotfiles/bash/.bashrc ~/.bashrc
+
+	cp -r ~/.dotfiles/todo.txt/config ~/.todo/config
+	sudo cp ~/.dotfiles/todo.txt/todo.sh /usr/local/bin/
+	touch ~/todo.txt ~/done.txt ~/report.txt
 }
 
 

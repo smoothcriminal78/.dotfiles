@@ -52,4 +52,6 @@ function whatsmyip () {
     dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
 }
 
+source ~/.dotfiles/todo.txt/todo_completion
+
 alias ls='ls -ahl'
