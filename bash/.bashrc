@@ -157,6 +157,8 @@ function whatsmyip () {
 }
 
 source ~/.dotfiles/todo.txt/todo_completion
+alias todo='todo.sh -d ~/.dotfiles/todo.txt/todo.cfg -at'
+complete -F _todo todo
 
 alias ls='ls -ahl'
 

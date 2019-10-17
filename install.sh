@@ -101,7 +101,7 @@ install_other(){
 	mv ~/.bashrc ~/.bashrc.bak
 	ln -sf ~/.dotfiles/bash/.bashrc ~/.bashrc
 
-	cp -r ~/.dotfiles/todo.txt/config ~/.todo/config
+	# cp -r ~/.dotfiles/todo.txt/config ~/.todo/config
 	sudo cp ~/.dotfiles/todo.txt/todo.sh /usr/local/bin/
 	touch ~/todo.txt ~/done.txt ~/report.txt
 }
