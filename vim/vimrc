@@ -304,7 +304,8 @@ map <F10> :sp ~/help.txt<CR>
 
 " compile C program
 " map <F12> :w <CR> :!g++ % -o %< && ./%< <CR>
-map <F12> :w <CR> :!cc % -o %< && ./%< <CR>
+" map <F12> :w <CR> :!cc % -o %< && ./%< <CR>
+autocmd FileType c nnoremap <leader>r :w <CR> :!cc % -o %< && ./%< <CR>
 
 " startify
 let g:startify_custom_header = [
