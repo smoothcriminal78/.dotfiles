@@ -251,3 +251,5 @@ tmux Panes Management
  <C-a>} (:swap-pane -R) - move current pane to the right
  <C-a>q - show pane numbers (type number to move cursor)
  <C-a><Space> - toggle pane arrangements
+
+Visually select and then g ctrl+G - to show the number of lines words and bytes
