@@ -160,5 +160,13 @@ source ~/.dotfiles/todo.txt/todo_completion
 alias todo='todo.sh -d ~/.dotfiles/todo.txt/todo.cfg -at'
 complete -F _todo todo
 
-alias ls='ls -ahl'
+export JAVA_HOME=/usr/bin/java
+export PATH=${PATH}:${JAVA_HOME}/bin
 
+export AXIS2C_HOME="/usr/local/axis2c"
+export STAFF_HOME=/usr/local/staff
+export PATH=$PATH:/usr/local/staff/bin
+
+alias ls='ls -ahl'
+alias javac='javac -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs:stdlib.jar'
+alias java='java -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs:stdlib.jar'

@@ -20,6 +20,7 @@ Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Completion and text
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'jiangmiao/auto-pairs'		    " Insert/Delete brackets in pair
@@ -203,11 +204,12 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:ycm_server_python_interpreter='/usr/bin/python3'
 " let g:ycm_server_log_level = 'debug'
 " let g:ycm_server_use_vim_stdout = 1
-" let g:ycm_confirm_extra_conf=0
+let g:ycm_confirm_extra_conf=0
 " let g:loaded_youcompleteme = 0
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_filetype_blacklist = { 'python' : 1, 'html' : 1 }
 " let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
+let g:ycm_goto_buffer_command = 'split-or-existing-window'
 
 " Python Mode
 let g:pymode_python = 'python3'
@@ -308,10 +310,11 @@ map <F10> :sp ~/help.txt<CR>
 " map <F12> :w <CR> :!cc % -o %< && ./%< <CR>
 " autocmd FileType c nnoremap <leader>r :w <CR> :!cc % -o %< -lm && ./%< <CR>
 autocmd FileType c nnoremap <leader>r :w <CR> :!cc % -o %< -lm -lcrypto -lssl && ./%< <CR>
+autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-]> :YcmCompleter GoTo<CR>
 
 function! RunJava()
     let args = input('Args:')
-    execute '!javac -classpath .:stdlib.jar % && java -classpath .:stdlib.jar %:r' . args
+    execute '!javac -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs/algs4.jar:stdlib.jar % && java -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs/algs4.jar:stdlib.jar %:r' . args
 endfunction
 autocmd FileType java nnoremap <leader>r :w <CR> :call RunJava() <CR> 
 
