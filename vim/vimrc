@@ -310,8 +310,8 @@ map <F10> :sp ~/help.txt<CR>
 " map <F12> :w <CR> :!cc % -o %< && ./%< <CR>
 " autocmd FileType c nnoremap <leader>r :w <CR> :!cc % -o %< -lm && ./%< <CR>
 autocmd FileType c nnoremap <leader>r :w <CR> :!cc % -o %< -lm -lcrypto -lssl && ./%< <CR>
-autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-]> :vsplit \| YcmCompleter GoTo<CR>
-autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-\> :split \| YcmCompleter GoTo<CR>
+autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-\> :vsplit \| YcmCompleter GoTo<CR>
+autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-]> :split \| YcmCompleter GoTo<CR>
 
 function! RunJava()
     let args = input('Args:')
