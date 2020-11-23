@@ -209,7 +209,7 @@ let g:ycm_confirm_extra_conf=0
 " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_filetype_blacklist = { 'python' : 1, 'html' : 1 }
 " let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
-let g:ycm_goto_buffer_command = 'split-or-existing-window'
+let g:ycm_goto_buffer_command = 'same-buffer'
 
 " Python Mode
 let g:pymode_python = 'python3'
@@ -310,7 +310,8 @@ map <F10> :sp ~/help.txt<CR>
 " map <F12> :w <CR> :!cc % -o %< && ./%< <CR>
 " autocmd FileType c nnoremap <leader>r :w <CR> :!cc % -o %< -lm && ./%< <CR>
 autocmd FileType c nnoremap <leader>r :w <CR> :!cc % -o %< -lm -lcrypto -lssl && ./%< <CR>
-autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-]> :YcmCompleter GoTo<CR>
+autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-]> :vsplit \| YcmCompleter GoTo<CR>
+autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-[> :split \| YcmCompleter GoTo<CR>
 
 function! RunJava()
     let args = input('Args:')
