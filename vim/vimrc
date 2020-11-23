@@ -107,7 +107,7 @@ set nofoldenable                " dont fold by default
 
 " Buffers
 set switchbuf=useopen
-noremap <S-q> :bd<CR>           " close current buffer
+noremap <S-q> :q!<CR>        " close current buffer
 noremap <A-Right> :bn<CR>       " move to next buffer
 noremap <A-Left> :bp<CR>        " move to previous buffer
 
@@ -182,7 +182,7 @@ let NERDTreeShowHidden=1
 "-- let g:NERDTreeDirArrowExpandable = '>'
 "-- let g:NERDTreeDirArrowCollapsible = '*'
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <leader>n :NERDTreeToggle<cr>
 
 " TagBar 
