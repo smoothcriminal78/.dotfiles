@@ -116,9 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
@@ -170,3 +170,5 @@ export PATH=$PATH:/usr/local/staff/bin
 alias ls='ls -ahl'
 alias javac='javac -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs:stdlib.jar'
 alias java='java -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs:stdlib.jar'
+
+alias sandbox='cd /media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/src'

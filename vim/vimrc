@@ -174,6 +174,8 @@ au BufNewFile,BufRead *.js set tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.html set syntax=html tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.css set tabstop=2 softtabstop=2 shiftwidth=2
 
+au Filetype xml if getfsize(@%) > 1000000 | setlocal syntax=OFF | endif
+
 "----Plugins----
 " NERDtree
 let g:NERDTreeDirArrows=0
@@ -207,7 +209,7 @@ let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_confirm_extra_conf=0
 " let g:loaded_youcompleteme = 0
 " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_filetype_blacklist = { 'python' : 1, 'html' : 1 }
+let g:ycm_filetype_blacklist = { 'python' : 1, 'html' : 1 , 'xml' : 1}
 " let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
 let g:ycm_goto_buffer_command = 'same-buffer'
 
@@ -293,8 +295,8 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
 "---search
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
 
 " Vim closetag
 let g:closetag_filenames = '*.xml,*.html,*.xhtml'
@@ -309,7 +311,8 @@ map <F10> :sp ~/help.txt<CR>
 " map <F12> :w <CR> :!g++ % -o %< && ./%< <CR>
 " map <F12> :w <CR> :!cc % -o %< && ./%< <CR>
 " autocmd FileType c nnoremap <leader>r :w <CR> :!cc % -o %< -lm && ./%< <CR>
-autocmd FileType c nnoremap <leader>r :w <CR> :!cc % -o %< -lm -lcrypto -lssl && ./%< <CR>
+" autocmd FileType c nnoremap <leader>r :w <CR> :!cc % -o %< -lm -lcrypto -lssl && ./%< <CR>
+autocmd FileType cpp,h nnoremap <leader>r :w <CR> :!cmake CMakeLists.txt && make -j8 && ./painting <CR>
 autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-\> :vsplit \| YcmCompleter GoTo<CR>
 autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-]> :split \| YcmCompleter GoTo<CR>
 
