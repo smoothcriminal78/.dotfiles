@@ -172,3 +172,10 @@ alias javac='javac -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithm
 alias java='java -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs:stdlib.jar'
 
 alias sandbox='cd /media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/src'
+
+alias galaxy_ip0='sudo ip addr add 10.0.100.128/16 dev eth0'
+alias galaxy_ip1='sudo ip addr add 10.1.100.128/16 dev eth0'
+alias galaxy_ip2='sudo ip addr add 10.2.100.128/16 dev eth0'
+alias galaxy_ip3='sudo ip addr add 10.3.100.128/16 dev eth0'
+alias galaxy_ip4='sudo ip addr add 10.4.100.128/16 dev eth0'
+alias galaxy_ip5='sudo ip addr add 10.5.100.128/16 dev eth0'

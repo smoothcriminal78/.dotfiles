@@ -30,6 +30,9 @@ Plugin 'tpope/vim-repeat'
 
 " Syntax
 " Plugin 'scrooloose/syntastic' 
+"
+" CSV
+Plugin 'chrisbra/csv.vim'
 
 " Git
 Plugin 'fugitive.vim'
@@ -61,8 +64,8 @@ Plugin 'mhinz/vim-startify'
 call vundle#end()
 
 " General
-syntax on
 filetype plugin indent on
+syntax on
 set encoding=utf-8              " utf-8 default encoding
 set clipboard=unnamed
 set gcr=a:blinkon0		        " don't blink
@@ -129,6 +132,8 @@ nnoremap <C-h> <C-w><C-h>
 let mapleader=","
 let maplocalleader = "\\"
 nnoremap <leader><space> :noh<cr>   " Clear search highlighting
+
+inoremap <C-l> <Esc>lxa
 
 " Changing between syntaxes
 nnoremap <leader>Tp :set ft=python<CR>
@@ -209,7 +214,7 @@ let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_confirm_extra_conf=0
 " let g:loaded_youcompleteme = 0
 " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_filetype_blacklist = { 'python' : 1, 'html' : 1 , 'xml' : 1}
+let g:ycm_filetype_blacklist = { 'python' : 1, 'html' : 1 , 'xml' : 1 }
 " let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
 let g:ycm_goto_buffer_command = 'same-buffer'
 
