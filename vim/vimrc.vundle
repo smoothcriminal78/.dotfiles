@@ -1,90 +1,75 @@
 set nocompatible
 filetype off
 
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
-endfunction
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#rc()
 
-" Install vim-plug if we don't already have it
-if empty(glob('~/.vim/autoload/plug.vim'))
-silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.vim/plugged')
+Plugin 'VundleVim/Vundle.vim'
 
 " Generic
-Plug 'scrooloose/nerdtree'            " File browser
-Plug 'kien/ctrlp.vim'                 " Working with buffers
-Plug 'majutsushi/tagbar'              " Class/module browser (Ctags required)
-Plug 'easymotion/vim-easymotion'      " Navigation
-Plug 'craigemery/vim-autotag'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-eunuch'
+Plugin 'scrooloose/nerdtree'            " File browser
+Plugin 'kien/ctrlp.vim'                 " Working with buffers
+Plugin 'majutsushi/tagbar'              " Class/module browser (Ctags required)
+Plugin 'easymotion/vim-easymotion'      " Navigation
+Plugin 'craigemery/vim-autotag'
 
 " Status line
-Plug 'bling/vim-airline'              " Lean & mean status/tabline for vim
-Plug 'vim-airline/vim-airline-themes' " ---dependencies
-Plug 'morhetz/gruvbox'                " Colorscheme
+Plugin 'bling/vim-airline'              " Lean & mean status/tabline for vim
+Plugin 'vim-airline/vim-airline-themes' " ---dependencies
+Plugin 'morhetz/gruvbox'                " Colorscheme
 
 " Completion and text
-Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
-Plug 'rdnetto/YCM-Generator'
-Plug 'ervandew/supertab'
-Plug 'vim-scripts/AutoComplPop'
-Plug 'jiangmiao/auto-pairs'           " Insert/Delete brackets in pair
-Plug 'tpope/vim-commentary'           " Comment stuff out
-Plug 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
-Plug 'tpope/vim-repeat'
-
-" Indentation
-Plug 'godlygeek/tabular'
-Plug 'yggdroot/indentline', { 'for': ['python', 'html', 'css', 'javascript', 'c', 'c++', 'java', 'scala'] }
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'jiangmiao/auto-pairs'		" Insert/Delete brackets in pair
+Plugin 'tpope/vim-commentary'           " Comment stuff out
+Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
+Plugin 'tpope/vim-repeat'
+Plugin 'yggdroot/indentline'
 
 " Syntax
-Plug 'scrooloose/syntastic' 
+" Plugin 'scrooloose/syntastic' 
 "
 " CSV
-Plug 'chrisbra/csv.vim'
+Plugin 'chrisbra/csv.vim'
 
 " Git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plugin 'fugitive.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " HTML
-Plug 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 
 " JavaScript
-Plug 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
-Plug 'alvan/vim-closetag'
+Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
+Plugin 'alvan/vim-closetag'
 
 " Python
-Plug 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
-Plug 'davidhalter/jedi-vim'
-Plug 'lepture/vim-jinja'
+Plugin 'klen/python-mode'               " Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box
+Plugin 'davidhalter/jedi-vim'
+Plugin 'lepture/vim-jinja'
 
 " Scala
-Plug 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-scala'
 
 " Other
-Plug 'freitass/todo.txt-vim'
-Plug 'mhinz/vim-startify'
+Plugin 'freitass/todo.txt-vim'
+Plugin 'mhinz/vim-startify'
 
-call plug#end()
+call vundle#end()
 
 " General
 filetype plugin indent on
 syntax on
 set encoding=utf-8              " utf-8 default encoding
 set clipboard=unnamed
-set gcr=a:blinkon0              " don't blink
+set gcr=a:blinkon0		        " don't blink
 set matchtime=0                 " don't blink when matching
 set noeb vb t_vb=               " disable beepsound
 set backspace=indent,eol,start
@@ -92,9 +77,8 @@ set mouse=a
 set pastetoggle=<F3>
 
 set cursorcolumn
-set cursorline
-" set list listchars=tab:»-,trail:·,extends:»,precedes:« " Show indent during typing
-" set lcs+=space:· " Show indentation spaces with dots
+" set cursorline
+set list listchars=tab:»-,trail:·,extends:»,precedes:«
 
 
 " Presentation
@@ -103,7 +87,7 @@ set background=dark
 set laststatus=2                " always show status bar
 set showmode                    " show current mode down the bottom
 set number                      " line numbers
-set ruler                       " show percentage within buffer
+set ruler			            " show percentage within buffer
 
 " Search
 set incsearch                   " incremental search
@@ -131,7 +115,7 @@ set nofoldenable                " dont fold by default
 
 " Buffers
 set switchbuf=useopen
-noremap <S-q> :q!<CR>           " close current buffer
+noremap <S-q> :q!<CR>        " close current buffer
 noremap <A-Right> :bn<CR>       " move to next buffer
 noremap <A-Left> :bp<CR>        " move to previous buffer
 
@@ -200,33 +184,12 @@ au BufNewFile,BufRead *.js set tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.html set syntax=html tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.css set tabstop=2 softtabstop=2 shiftwidth=2
 
-" Large files
-if getfsize(@%) < 100000  
-  "-- enable easymotion search for normal files
-  map  / <Plug>(easymotion-sn)
-  omap / <Plug>(easymotion-tn)
-endif
-au FileType xml,json if getfsize(@%) > 100000 | setlocal syntax=OFF | endif
+au Filetype xml if getfsize(@%) > 1000000 | setlocal syntax=OFF | endif
 
 "----Plugins----
-" Auto pairs
-let g:AutoPairsShortcutToggle = '<another key>'
-
-" Multiple cursors
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_word_key      = '<C-n>'
-let g:multi_cursor_select_all_word_key = '<C-m>'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<C-m>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
-
 " NERDtree
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
-let NERDTreeHighlightCursorline=1
 "-- for win
 "-- let g:NERDTreeDirArrowExpandable = '>'
 "-- let g:NERDTreeDirArrowCollapsible = '*'
@@ -234,23 +197,12 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <leader>n :NERDTreeToggle<cr>
 
-autocmd! BufEnter * call ToggleCursorLine()
-
-function! ToggleCursorLine()
-    if (bufname('#') =~ 'NERD_tree_\d\+')
-        set nocursorcolumn
-    else
-	 set cursorline cursorcolumn
-    endif
-endfunction
-
 " Indent
-let g:indentLine_enabled = 1
-let g:indentLine_char = '┊'
+let g:indentLine_enabled = 0
+let g:indentLine_char = '¦'
 let g:indentLine_color_term = 239
 " let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:indentLine_leadingSpaceChar='·'
-let g:indentLine_leadingSpaceEnabled='1'
+au BufNewFile,BufRead *.py set g:indentLine_enabled = 1
 
 " TagBar 
 let g:tagbar_autofocus = 1
@@ -359,6 +311,9 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 "---move to line
 map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
+"---search
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
 
 " Vim closetag
 let g:closetag_filenames = '*.xml,*.html,*.xhtml'

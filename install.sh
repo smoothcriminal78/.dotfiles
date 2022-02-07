@@ -17,8 +17,8 @@ install_vim(){
 	echo "Vim-gtk"
 	sudo apt-get install --yes vim-gtk
 	sudo apt-get install --yes xclip
-	echo "Installing Vundle"
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	# echo "Installing Vundle"
+	# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	# for windows git clone https://github.com/VundleVim/Vundle.vim.git %USERPROFILE%/.vim/bundle/Vundle.vim
 	ln -sf ~/.dotfiles/vim/vimrc ~/.vimrc
 	echo "Git as a diff tool"
