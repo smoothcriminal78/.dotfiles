@@ -42,7 +42,7 @@ Plug 'tpope/vim-repeat'
 
 " Indentation
 Plug 'godlygeek/tabular'
-Plug 'yggdroot/indentline', { 'for': ['python', 'html', 'css', 'javascript', 'c', 'c++', 'java', 'scala'] }
+Plug 'yggdroot/indentline'
 
 " Syntax
 Plug 'scrooloose/syntastic' 
@@ -210,7 +210,7 @@ au FileType xml,json if getfsize(@%) > 100000 | setlocal syntax=OFF | endif
 
 "----Plugins----
 " Auto pairs
-let g:AutoPairsShortcutToggle = '<another key>'
+" let g:AutoPairsShortcutToggle = '<another key>'
 
 " Multiple cursors
 let g:multi_cursor_use_default_mapping = 0
@@ -239,18 +239,22 @@ autocmd! BufEnter * call ToggleCursorLine()
 function! ToggleCursorLine()
     if (bufname('#') =~ 'NERD_tree_\d\+')
         set nocursorcolumn
+	" :LeadingSpaceDisable
     else
-	 set cursorline cursorcolumn
+	set cursorline cursorcolumn
     endif
 endfunction
 
 " Indent
-let g:indentLine_enabled = 1
+let g:indentLine_enabled = 0
 let g:indentLine_char = '┊'
 let g:indentLine_color_term = 239
 " let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:indentLine_leadingSpaceChar='·'
-let g:indentLine_leadingSpaceEnabled='1'
+let g:indentLine_leadingSpaceEnabled=0
+let g:indentLine_leadingSpaceChar='.'
+
+au BufNewFile,BufRead *.py,*.cpp,*.h,*.html,*.htm,*.js,*.css,*.java,*.json,*.sh :IndentLinesEnable
+au BufNewFile,BufRead *.py,*.cpp,*.h,*.html,*.htm,*.js,*.css,*.java,*.json,*.sh :LeadingSpaceEnable
 
 " TagBar 
 let g:tagbar_autofocus = 1
