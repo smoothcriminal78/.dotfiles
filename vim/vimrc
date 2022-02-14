@@ -213,8 +213,6 @@ au FileType xml,json if getfsize(@%) > 100000 | setlocal syntax=OFF | endif
 " Auto pairs
 " let g:AutoPairsShortcutToggle = '<another key>'
 
-" Multiple cursors
-
 " NERDtree
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
