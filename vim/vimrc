@@ -22,13 +22,14 @@ Plug 'kien/ctrlp.vim'                 " Working with buffers
 Plug 'majutsushi/tagbar'              " Class/module browser (Ctags required)
 Plug 'easymotion/vim-easymotion'      " Navigation
 Plug 'craigemery/vim-autotag'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-eunuch'
 
 " Status line
 Plug 'bling/vim-airline'              " Lean & mean status/tabline for vim
 Plug 'vim-airline/vim-airline-themes' " ---dependencies
 Plug 'morhetz/gruvbox'                " Colorscheme
+Plug 'dstein64/vim-menu'
 
 " Completion and text
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
@@ -213,15 +214,6 @@ au FileType xml,json if getfsize(@%) > 100000 | setlocal syntax=OFF | endif
 " let g:AutoPairsShortcutToggle = '<another key>'
 
 " Multiple cursors
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_word_key      = '<C-n>'
-let g:multi_cursor_select_all_word_key = '<C-m>'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<C-m>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
 
 " NERDtree
 let g:NERDTreeDirArrows=0
