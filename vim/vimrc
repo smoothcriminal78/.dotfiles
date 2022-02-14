@@ -210,9 +210,6 @@ endif
 au FileType xml,json if getfsize(@%) > 100000 | setlocal syntax=OFF | endif
 
 "----Plugins----
-" Auto pairs
-" let g:AutoPairsShortcutToggle = '<another key>'
-
 " NERDtree
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
@@ -356,6 +353,9 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 
 " Vim closetag
 let g:closetag_filenames = '*.xml,*.html,*.xhtml'
+
+" AutoPairs
+let g:AutoPairsShortcutToggle = '<C-c>'
 
 " todo.txt
 map <F2> :sp ~/todo.txt<CR>
