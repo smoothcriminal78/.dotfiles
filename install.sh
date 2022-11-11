@@ -32,28 +32,6 @@ install_vim(){
 	git config mergetool.prompt false
 }
 
-install_node(){
-	# nvm ls-remote - to list available versions
-	NVM_VERSION="8.11.1"
-
-	echo "Installing Node js"
-	sudo apt-get update
-	sudo apt-get install --yes nodejs
-
-	#fix sudo ln -s /usr/bin/nodejs /usr/bin/node
-
-	echo "Installing Npm"
-	sudo apt-get install --yes npm
-
-	echo "Installing Nvm"
-	bash install_nvm.sh
-
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-	nvm install $NVM_VERSION 
-}
-
 install_python(){
 	echo "Installing Python"
 	sudo apt-get install --yes virtualenv
@@ -113,13 +91,11 @@ do
 case "$1" in
 -t | --tmux ) install_tmux ;;
 -v | --vim ) install_vim ;;
--n | --node ) install_node ;;
 -p | --python ) install_python ;;
 -o | --other ) install_other ;;
 -a | --all ) 
 	install_tmux
 	install_vim
-	install_node
 	install_python
 	install_other
 ;;

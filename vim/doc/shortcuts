@@ -253,3 +253,6 @@ tmux Panes Management
  <C-a><Space> - toggle pane arrangements
 
 Visually select and then g ctrl+G - to show the number of lines words and bytes
+
+g + <C-g> - in visual mode show lines count
+<C-a> <C-x> - increment / decrement number under cursor

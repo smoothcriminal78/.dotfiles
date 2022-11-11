@@ -46,7 +46,7 @@ Plug 'godlygeek/tabular'
 Plug 'yggdroot/indentline'
 
 " Syntax
-Plug 'scrooloose/syntastic' 
+" Plug 'scrooloose/syntastic' 
 "
 " CSV
 Plug 'chrisbra/csv.vim'
@@ -195,6 +195,7 @@ map <F9> :emenu Folding.<TAB>
 " Options based on file type
 au BufNewFile,BufRead *.sh set tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.cpp set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+au BufNewFile,BufRead *.java set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 au BufNewFile,BufRead *.c set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 au BufNewFile,BufRead *.py set autoindent smartindent smarttab expandtab textwidth=120 tabstop=4 softtabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.js set tabstop=2 softtabstop=2 shiftwidth=2
@@ -363,6 +364,9 @@ map <F2> :sp ~/todo.txt<CR>
 " todo.txt
 map <F10> :sp ~/help.txt<CR>
 
+" csv
+let b:csv_headerline = 0
+
 " compile C program
 " map <F12> :w <CR> :!g++ % -o %< && ./%< <CR>
 " map <F12> :w <CR> :!cc % -o %< && ./%< <CR>
@@ -374,7 +378,7 @@ autocmd FileType c,cpp,h,hpp nnoremap <buffer> <C-]> :split \| YcmCompleter GoTo
 
 function! RunJava()
     let args = input('Args:')
-    execute '!javac -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs/algs4.jar:stdlib.jar % && java -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs/algs4.jar:stdlib.jar %:r' . args
+    execute '!javac -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/lib/algs4.jar:stdlib.jar % && java -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/lib/algs4.jar:stdlib.jar %:r' . args
 endfunction
 autocmd FileType java nnoremap <leader>r :w <CR> :call RunJava() <CR> 
 

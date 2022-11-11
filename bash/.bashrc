@@ -91,6 +91,8 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias galaxy_ip0='sudo ip addr add 10.0.100.128/16 dev eth0'
+alias sandbox='cd /media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/src/ && vim'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -116,66 +118,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-
-function backup () {
-    newname=$1.`date +%Y-%m-%d.%H%M.bak`;
-    mv $1 $newname;
-    echo "Backed up $1 to $newname.";
-    cp -p $newname $1;
-}
-
-function hideme () {
-  if [[ -n "$1" ]] 
-    then
-    case "$1" in
-      -s | --stop ) 
-        sudo killall openvpn 
-        return 0
-      ;;
-      *)
-        echo "Option $1 not recognized"
-        return 1
-      ;;
-    esac
-  else
-    sudo killall openvpn
-    sudo openvpn --config ~/client1.ovpn > /dev/null &
-  fi
-
-  return 0
-}
-
-function whatsmyip () {
-    echo "Your ip is:"
-    dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
-}
-
-source ~/.dotfiles/todo.txt/todo_completion
-alias todo='todo.sh -d ~/.dotfiles/todo.txt/todo.cfg -at'
-complete -F _todo todo
-
-export JAVA_HOME=/usr/bin/java
-export PATH=${PATH}:${JAVA_HOME}/bin
-
-export AXIS2C_HOME="/usr/local/axis2c"
-export STAFF_HOME=/usr/local/staff
-export PATH=$PATH:/usr/local/staff/bin
-
-alias ls='ls -ahl'
-alias javac='javac -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs:stdlib.jar'
-alias java='java -classpath .:/media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/libs:stdlib.jar'
-
-alias sandbox='cd /media/azimut/work/src/sandbox/CG/JAVA/algorithms-sedgewick-wayne/src'
-
-alias galaxy_ip0='sudo ip addr add 10.0.100.128/16 dev eth0'
-alias galaxy_ip1='sudo ip addr add 10.1.100.128/16 dev eth0'
-alias galaxy_ip2='sudo ip addr add 10.2.100.128/16 dev eth0'
-alias galaxy_ip3='sudo ip addr add 10.3.100.128/16 dev eth0'
-alias galaxy_ip4='sudo ip addr add 10.4.100.128/16 dev eth0'
-alias galaxy_ip5='sudo ip addr add 10.5.100.128/16 dev eth0'
+alias skolkovo="ssh -i ~/.ssh/skolkovo_rsa ubuntu@5.252.64.88"
+alias sync_app="cd /media/azimut/work/src/azimut-flt ; rsync -avz ./app --exclude '.git' --exclude 'venv' --exclude '.env' --exclude 'Cleanup' --exclude 'media/*' --exclude azimut/staticfiles --exclude './cron.sh' --exclude './Dockerfile' --exclude './install.sh' --exclude './Pipfile' --exclude './Procfile' --exclude './restart.sh' --exclude './runtime.txt' --exclude './Start' ubuntu@5.252.64.88:/usr/local/"
+alias sync_galaxy="rsync -avz /media/azimut/work/src/dev/galaxy  --exclude '.git' ubuntu@5.252.64.88:/home/ubuntu/"
+alias sync_galaxy_settings="rsync -avz /usr/local/Galaxy_Settings.skolkovo  --exclude 'Start' ubuntu@5.252.64.88:/usr/local/"
+alias venv_activate=". /media/azimut/work/src/azimut-flt/app/venv/bin/activate"
+alias start_demo="/media/azimut/work/src/dev/build/bin/CWP /usr/local/Galaxy_Settings/CWP/"
