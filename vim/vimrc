@@ -368,9 +368,9 @@ map <F10> :sp ~/help.txt<CR>
 let b:csv_headerline = 0
 
 " visual multi
-let g:VM_maps = {}
-let g:VM_maps["Add Cursor Down"] = '<C-j>'
-let g:VM_maps["Add Cursor Up"]   = '<C-k>'
+" let g:VM_maps = {}
+" let g:VM_maps["Add Cursor Down"] = '<C-j>'
+" let g:VM_maps["Add Cursor Up"]   = '<C-k>'
 
 " compile C program
 " map <F12> :w <CR> :!g++ % -o %< && ./%< <CR>

@@ -79,9 +79,36 @@ install_other(){
 	mv ~/.bashrc ~/.bashrc.bak
 	ln -sf ~/.dotfiles/bash/.bashrc ~/.bashrc
 
+	# ubuntu
+	gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
+	gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
+	gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+	gsettings set org.gnome.desktop.media-handling automount false
+
+	# grid workspaces https://extensions.gnome.org/extension/1485/workspace-matrix/
+	sudo aptitude install gnome-shell-extensions
+	sudo apt-get install chrome-gnome-shell
+
+	gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Control><Alt>Left']"
+	gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<Control><Alt>Right']"
+	gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['<Control><Alt>Up']"
+	gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['<Control><Alt>Down']"
+
+	gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Shift><Alt>Left']"
+	gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Shift><Alt>Right']"
+	gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Control><Shift><Alt>Up']"
+	gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['<Control><Shift><Alt>Down']"
+
 	# cp -r ~/.dotfiles/todo.txt/config ~/.todo/config
 	sudo cp ~/.dotfiles/todo.txt/todo.sh /usr/local/bin/
 	touch ~/todo.txt ~/done.txt ~/report.txt
+
+	# youcompleteme
+	sudo apt-get install --yes cmake
+	~/.vim/plugged/YouCompleteMe/install.sh
+
+	# galaxy
+	sudo apt intall openscenegraph libopenscenegraph-dev libglib3.0-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev
 }
 
 
