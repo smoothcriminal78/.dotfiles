@@ -45,6 +45,10 @@ install_python(){
 
 install_other(){
 	echo "Installing other linux packages"
+
+	# other
+	sudo apt install --yes git gitk meld mc wireshark openssh-server
+
 	sudo apt-get install --yes curl
 	sudo apt-get install --reinstall p7zip-rar unrar
 	sudo apt-get install --yes ctags
@@ -108,7 +112,7 @@ install_other(){
 	~/.vim/plugged/YouCompleteMe/install.sh
 
 	# galaxy
-	sudo apt intall openscenegraph libopenscenegraph-dev libglib3.0-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev
+	sudo apt install openscenegraph libopenscenegraph-dev libglib3.0-cil-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev
 }
 
 
