@@ -110,6 +110,11 @@ install_other(){
 
 	# galaxy
 	sudo apt install -y qtcreator qtbase5-dev qt5-qmake openscenegraph libopenscenegraph-dev libglib3.0-cil-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev
+
+	# npm
+	./npm/install.sh	
+	source ~/.profile
+	nvm install 17.8.0
 }
 
 
