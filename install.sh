@@ -113,7 +113,7 @@ install_other(){
 
 	# npm
 	./npm/install.sh	
-	source ~/.profile
+	. ~/.profile
 	nvm install 17.8.0
 }
 
