@@ -47,20 +47,17 @@ install_other(){
 	echo "Installing other linux packages"
 
 	# other
-	sudo apt install --yes git gitk meld mc wireshark openssh-server
+	sudo apt install --yes git gitk meld mc wireshark openssh-server gconf2 gparted
 
 	sudo apt-get install --yes curl
 	sudo apt-get install --reinstall p7zip-rar unrar
 	sudo apt-get install --yes ctags
 	
 	sudo apt-get install --yes guake
-	# Dump settings
-	# gconftool-2 --dump /apps/guake > apps-guake.xml
-	# gconftool-2 --dump /schemas/apps/guake > schemas-apps-guake.xml
 
-	# Restore
-	gconftool-2 --load ~/.dotfiles/guake/apps-guake.xml
-	gconftool-2 --load ~/.dotfiles/guake/schemas-apps-guake.xml
+	# Dump Guake settings
+	# guake --save-preferences ~/.dotfiles/guake/guake
+	guake --restore-preferences ~/.dotfiles/guake/guake
 
 	# List profiles:
 	# dconf dump /org/gnome/terminal/legacy/profiles:/ | grep -e "\[\:\|visible-name"
@@ -112,7 +109,7 @@ install_other(){
 	~/.vim/plugged/YouCompleteMe/install.sh
 
 	# galaxy
-	sudo apt install openscenegraph libopenscenegraph-dev libglib3.0-cil-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev
+	sudo apt install -y qtcreator qtbase5-dev qt5-qmake openscenegraph libopenscenegraph-dev libglib3.0-cil-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev
 }
 
 
