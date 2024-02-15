@@ -30,17 +30,30 @@ install_vim(){
 	git config --global mergetool.keepBackup false
 	git config merge.conflictstyle diff3
 	git config mergetool.prompt false
+
+	# youcompleteme
+	sudo apt-get install --yes cmake
+
+	# YCM ycm_extra_conf.py
+	cp ~/.dotfiles/ycm/.ycm_extra_conf.py ~/.ycm_extra_conf.py
+
+	~/.vim/plugged/YouCompleteMe/install.sh
 }
 
 install_python(){
 	echo "Installing Python"
 	sudo apt-get install --yes virtualenv
 	sudo apt-get install --yes python-pip
+	sudo apt-get install --yes python3-pip
 	sudo apt-get install --yes python-dev
 	sudo apt-get install --yes python3-dev
 	sudo pip install --upgrade pip
 	sudo pip install --upgrade virtualenv
 	sudo pip install pyflakes pep8 pylint ipython
+}
+
+install_galaxy() {
+	sudo apt install -y cmae qtcreator qtbase5-dev qt5-qmake openscenegraph libopenscenegraph-dev libglib3.0-cil-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev
 }
 
 install_other(){
@@ -66,29 +79,20 @@ install_other(){
 	# Load console profile
 	dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ <  ~/.dotfiles/bash/dconf/profile.dconf
 
-	# YCM ycm_extra_conf.py
-	cp ~/.dotfiles/ycm/.ycm_extra_conf.py ~/.ycm_extra_conf.py
-
-	# Gyazo
-	curl -s https://packagecloud.io/install/repositories/gyazo/gyazo-for-linux/script.deb.sh | sudo bash
-	sudo apt-get install gyazo
-
 	# Bash .profile
-	# mv ~/.profile ~/.profile.bak
-	# ln -sf ~/.dotfiles/bash/.profile ~/.profile
-
-	mv ~/.bashrc ~/.bashrc.bak
+	ln -sf ~/.dotfiles/bash/.profile ~/.profile
 	ln -sf ~/.dotfiles/bash/.bashrc ~/.bashrc
+
+	# grid workspaces
+	google-chrome https://extensions.gnome.org/extension/1485/workspace-matrix/
+	sudo aptitude install gnome-shell-extensions
+	sudo apt-get install --yes chrome-gnome-shell
 
 	# ubuntu
 	gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
 	gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
 	gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
 	gsettings set org.gnome.desktop.media-handling automount false
-
-	# grid workspaces https://extensions.gnome.org/extension/1485/workspace-matrix/
-	sudo aptitude install gnome-shell-extensions
-	sudo apt-get install chrome-gnome-shell
 
 	gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Control><Alt>Left']"
 	gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<Control><Alt>Right']"
@@ -104,16 +108,11 @@ install_other(){
 	sudo cp ~/.dotfiles/todo.txt/todo.sh /usr/local/bin/
 	touch ~/todo.txt ~/done.txt ~/report.txt
 
-	# youcompleteme
-	sudo apt-get install --yes cmake
-	~/.vim/plugged/YouCompleteMe/install.sh
-
-	# galaxy
-	sudo apt install -y qtcreator qtbase5-dev qt5-qmake openscenegraph libopenscenegraph-dev libglib3.0-cil-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev
-
 	# npm
 	./npm/install.sh	
+	. ~/.nvm/nvm.sh
 	. ~/.profile
+	. ~/.bashrc
 	nvm install 17.8.0
 }
 
@@ -125,11 +124,13 @@ case "$1" in
 -t | --tmux ) install_tmux ;;
 -v | --vim ) install_vim ;;
 -p | --python ) install_python ;;
+-g | --galaxy ) install_galaxy ;;
 -o | --other ) install_other ;;
 -a | --all ) 
 	install_tmux
 	install_vim
 	install_python
+	install_galaxy
 	install_other
 ;;
 *) echo "Option $1 not recognized";;
