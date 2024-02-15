@@ -53,7 +53,11 @@ install_python(){
 }
 
 install_galaxy() {
-	sudo apt install -y cmae qtcreator qtbase5-dev qt5-qmake openscenegraph libopenscenegraph-dev libglib3.0-cil-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev
+	sudo apt install -y cmae qtcreator qtbase5-dev qt5-qmake openscenegraph libopenscenegraph-dev libglib3.0-cil-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev openssl libssl-dev
+}
+
+install_java() {
+	sudo apt install -y default-jre default-jdk
 }
 
 install_other(){
@@ -125,12 +129,14 @@ case "$1" in
 -v | --vim ) install_vim ;;
 -p | --python ) install_python ;;
 -g | --galaxy ) install_galaxy ;;
+-j | --java ) install_java ;;
 -o | --other ) install_other ;;
 -a | --all ) 
 	install_tmux
 	install_vim
 	install_python
 	install_galaxy
+	install_java
 	install_other
 ;;
 *) echo "Option $1 not recognized";;
