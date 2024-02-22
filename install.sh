@@ -50,10 +50,14 @@ install_python(){
 	sudo pip install --upgrade pip
 	sudo pip install --upgrade virtualenv
 	sudo pip install pyflakes pep8 pylint ipython
+
+	sudo add-apt-repository ppa:deadsnakes/ppa
+	sudo apt --yes install python3.8 python3.8-distutils -y
+	sudo apt-get --yes install gettext
 }
 
 install_galaxy() {
-	sudo apt install -y cmae qtcreator qtbase5-dev qt5-qmake openscenegraph libopenscenegraph-dev libglib3.0-cil-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev openssl libssl-dev
+	sudo apt install -y cmake qtcreator qtbase5-dev qt5-qmake openscenegraph libopenscenegraph-dev libglib3.0-cil-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxcomposite-dev libqt5webkit5-dev openssl libssl-dev
 }
 
 install_java() {
@@ -65,6 +69,7 @@ install_other(){
 
 	# other
 	sudo apt install --yes git gitk meld mc wireshark openssh-server gconf2 gparted
+	sudo apt-get install --yes libxml2-dev libxslt-dev 
 
 	sudo apt-get install --yes curl
 	sudo apt-get install --reinstall p7zip-rar unrar
