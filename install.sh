@@ -132,6 +132,8 @@ install_other(){
 	. ~/.profile
 	. ~/.bashrc
 	nvm install 17.8.0
+
+	# git remote add origin https://username:token@github.com/smoothcriminal78/.dotfiles.git
 }
 
 
