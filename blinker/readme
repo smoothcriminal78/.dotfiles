@@ -1,0 +1,4 @@
+sudo cp blinker.service /etc/systemd/system/blinker.service
+
+sudo systemctl daemon-reload
+sudo systemctl enable blinker.service

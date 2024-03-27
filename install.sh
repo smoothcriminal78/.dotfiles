@@ -81,6 +81,12 @@ install_other(){
 	# guake --save-preferences ~/.dotfiles/guake/guake
 	guake --restore-preferences ~/.dotfiles/guake/guake
 
+	# Blinker
+	sudo cp ~/.dotfiles/blinker/blinker.service /etc/systemd/system/blinker.service
+
+	sudo systemctl daemon-reload
+	sudo systemctl enable blinker.service
+
 	# List profiles:
 	# dconf dump /org/gnome/terminal/legacy/profiles:/ | grep -e "\[\:\|visible-name"
 	# Dump console settings
