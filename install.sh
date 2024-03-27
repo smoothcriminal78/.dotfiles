@@ -119,6 +119,9 @@ install_other(){
 	gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Control><Shift><Alt>Up']"
 	gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['<Control><Shift><Alt>Down']"
 
+	gsettings set org.gnome.desktop.wm.keybindings maximize "['<Ctrl><Super>Up']"
+	gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Ctrl><Super>Down']"
+
 	# cp -r ~/.dotfiles/todo.txt/config ~/.todo/config
 	sudo cp ~/.dotfiles/todo.txt/todo.sh /usr/local/bin/
 	touch ~/todo.txt ~/done.txt ~/report.txt
