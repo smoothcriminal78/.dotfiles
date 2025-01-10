@@ -128,3 +128,31 @@ alias sync_galaxy="rsync -avz /media/azimut/work/src/dev/galaxy  --exclude '.git
 alias sync_galaxy_settings="rsync -avz /usr/local/Galaxy_Settings.skolkovo  --exclude 'Start' ubuntu@5.252.64.88:/usr/local/"
 alias venv_activate=". /media/azimut/work/src/azimut-flt/app/venv/bin/activate"
 alias start_demo="/media/azimut/work/src/dev/build/bin/CWP /usr/local/Galaxy_Settings/CWP/"
+alias yt-dlp="yt-dlp -f 'bestvideo[height<=720]+bestaudio'"
+
+webmTOmp4 () {
+	for f in ./*.webm; do
+		name="${f%.*}"
+		ext="${f##*.}"
+		ffmpeg -n -fflags +genpts -i "$f" -r 24 "$name".mp4
+		# printf $name
+	done
+}    
+
+mkvTOmp4 () {
+	for f in ./*.mkv; do
+		name="${f%.*}"
+		ext="${f##*.}"
+		ffmpeg -n -fflags +genpts -i "$f" -r 24 "$name".mp4
+		# printf $name
+	done
+}    
+
+convertTOmp4 () {
+	mkvTOmp4
+	webmTOmp4
+}
+
+mp4TOmp3 () {
+  ffmpeg -i "$1".mp4 "$1".mp3
+}

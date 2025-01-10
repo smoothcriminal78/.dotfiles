@@ -55,3 +55,4 @@ function whatsmyip () {
 source ~/.dotfiles/todo.txt/todo_completion
 
 alias ls='ls -ahl'
+alias yt-dlp="yt-dlp -f 'bestvideo[height<=720]+bestaudio'"
